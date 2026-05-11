@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArgoMD — Telehealth Services</title>
-    <meta name="description" content="ArgoMD provides telehealth services. Coming soon.">
+    <title>ArgoMD — GLP-1 Weight Loss Medication</title>
+    <meta name="description" content="ArgoMD provides GLP-1 weight loss medications including Semaglutide and Tirzepatide. Online consultations, discreet delivery.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Extracted from logo */
             --argo-green: #1c4231;
             --argo-green-light: #2d5a42;
             --argo-gold: #d49e3f;
@@ -20,12 +19,8 @@
             --warm-gray: #5a5a5a;
             --light-gray: #8a8a8a;
             --white: #FFFFFF;
-
-            /* Typography */
             --font-display: 'Cinzel', serif;
             --font-body: 'Lato', sans-serif;
-
-            /* Spacing */
             --space-xs: 4px;
             --space-sm: 8px;
             --space-md: 16px;
@@ -34,23 +29,15 @@
             --space-2xl: 48px;
             --space-3xl: 64px;
             --space-4xl: 96px;
-
-            /* Shadows */
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
             --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-
-            /* Border Radius */
             --radius-md: 8px;
             --radius-lg: 16px;
             --radius-full: 9999px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-body);
@@ -62,19 +49,12 @@
         /* Navigation */
         .nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 80px;
             background: rgba(255,255,255,0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(28,66,49,0.08);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .nav.scrolled {
-            box-shadow: var(--shadow-md);
         }
 
         .nav-container {
@@ -95,8 +75,8 @@
         }
 
         .logo-mark {
-            width: 56px;
-            height: 56px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
         }
 
@@ -107,6 +87,8 @@
             color: var(--argo-green);
             letter-spacing: 0.08em;
         }
+
+        .logo-text span { color: var(--argo-gold); }
 
         .nav-links {
             display: flex;
@@ -124,8 +106,24 @@
             transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--argo-gold);
+        .nav-links a:hover { color: var(--argo-gold); }
+
+        .nav-cta {
+            background: var(--argo-green);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--argo-green-light);
+            transform: translateY(-1px);
         }
 
         .mobile-menu-btn {
@@ -150,10 +148,8 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
+            top: -30%; right: -10%;
+            width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(28,66,49,0.04) 0%, transparent 70%);
             border-radius: 50%;
         }
@@ -168,10 +164,7 @@
             width: 100%;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+        .hero-content { position: relative; z-index: 1; }
 
         .hero-badge {
             display: inline-flex;
@@ -186,14 +179,6 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: var(--space-xl);
-            font-family: var(--font-body);
-        }
-
-        .hero-badge-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--argo-gold);
-            border-radius: 50%;
         }
 
         .hero h1 {
@@ -289,7 +274,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
 
         .hero-logo-display img {
@@ -299,16 +283,21 @@
             filter: drop-shadow(0 20px 40px rgba(28,66,49,0.15));
         }
 
-        /* Coming Soon Section */
-        .coming-soon-section {
+        /* Medications Section */
+        .medications {
             padding: var(--space-4xl) var(--space-lg);
             background: var(--white);
-            text-align: center;
         }
 
         .section-container {
-            max-width: 800px;
+            max-width: 1280px;
             margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-3xl);
         }
 
         .section-label {
@@ -322,10 +311,9 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: var(--space-lg);
-            font-family: var(--font-body);
         }
 
-        .coming-soon-section h2 {
+        .section-header h2 {
             font-family: var(--font-display);
             font-size: clamp(24px, 3.5vw, 40px);
             font-weight: 700;
@@ -335,100 +323,216 @@
             letter-spacing: 0.02em;
         }
 
-        .coming-soon-section p {
+        .section-header p {
             color: var(--warm-gray);
             font-size: 17px;
             line-height: 1.7;
             font-weight: 300;
         }
 
-        /* About Section */
-        .about {
+        .med-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .med-card {
+            background: var(--cream);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            border: 1px solid rgba(28,66,49,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .med-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .med-card-badge {
+            display: inline-block;
+            background: var(--argo-gold);
+            color: var(--argo-green);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-md);
+        }
+
+        .med-card h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--argo-green);
+            margin-bottom: var(--space-sm);
+        }
+
+        .med-card .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--argo-gold);
+            margin-bottom: var(--space-md);
+        }
+
+        .med-card .price span {
+            font-size: 14px;
+            color: var(--warm-gray);
+            font-weight: 400;
+        }
+
+        .med-card ul {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .med-card ul li {
+            padding: var(--space-xs) 0;
+            color: var(--warm-gray);
+            font-size: 15px;
+            padding-left: var(--space-md);
+            position: relative;
+        }
+
+        .med-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--argo-green);
+            font-weight: 700;
+        }
+
+        .med-card .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* How It Works */
+        .how-it-works {
             padding: var(--space-4xl) var(--space-lg);
             background: var(--cream);
         }
 
-        .about-grid {
-            max-width: 1280px;
-            margin: 0 auto;
+        .steps {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-3xl);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .step {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--argo-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
             align-items: center;
-        }
-
-        .about-content h2 {
+            justify-content: center;
             font-family: var(--font-display);
-            font-size: clamp(24px, 3vw, 36px);
+            font-size: 28px;
             font-weight: 700;
-            color: var(--argo-green);
-            margin-bottom: var(--space-lg);
-            letter-spacing: 0.02em;
+            margin: 0 auto var(--space-lg);
         }
 
-        .about-content p {
+        .step h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--argo-green);
+        }
+
+        .step p {
+            color: var(--warm-gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: var(--space-4xl) var(--space-lg);
+            background: var(--white);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(28,66,49,0.1);
+            padding: var(--space-lg) 0;
+        }
+
+        .faq-question {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--argo-green);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+
+        .faq-question:hover { color: var(--argo-gold); }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--argo-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: var(--space-md);
+        }
+
+        .faq-answer p {
             color: var(--warm-gray);
             font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: var(--space-md);
+            line-height: 1.7;
             font-weight: 300;
         }
 
-        .about-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Disclaimer */
+        .disclaimer {
+            padding: var(--space-xl) var(--space-lg);
+            background: var(--cream);
+            border-top: 1px solid rgba(28,66,49,0.08);
         }
 
-        .about-logo img {
-            width: 70%;
-            max-width: 360px;
-            object-fit: contain;
-            opacity: 0.9;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: var(--space-4xl) var(--space-lg);
-            background: var(--argo-green);
-            color: var(--white);
+        .disclaimer-container {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .contact h2 {
-            font-family: var(--font-display);
-            font-size: clamp(24px, 3.5vw, 40px);
-            font-weight: 700;
-            margin-bottom: var(--space-md);
-            letter-spacing: 0.02em;
-        }
-
-        .contact p {
-            font-size: 17px;
-            opacity: 0.85;
-            max-width: 500px;
-            margin: 0 auto var(--space-xl);
-            font-weight: 300;
-            line-height: 1.7;
-        }
-
-        .contact-email {
-            display: inline-block;
-            background: var(--argo-gold);
-            color: var(--argo-green);
-            padding: 14px 32px;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-        }
-
-        .contact-email:hover {
-            background: var(--argo-gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .disclaimer p {
+            font-size: 12px;
+            color: var(--light-gray);
+            line-height: 1.6;
+            margin-bottom: var(--space-sm);
         }
 
         /* Footer */
@@ -436,7 +540,6 @@
             background: var(--argo-green);
             color: var(--white);
             padding: var(--space-xl) var(--space-lg);
-            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-container {
@@ -475,6 +578,21 @@
             font-weight: 300;
         }
 
+        .footer-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover { color: var(--argo-gold); }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-container {
@@ -495,24 +613,10 @@
                 max-width: 320px;
                 margin: 0 auto;
             }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .about-logo {
-                order: -1;
-            }
-
-            .about-logo img {
-                width: 50%;
-                max-width: 240px;
-            }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-links, .nav-cta {
                 display: none;
             }
 
@@ -520,31 +624,27 @@
                 display: block;
             }
 
-            .logo-mark {
-                width: 44px;
-                height: 44px;
-            }
-
-            .logo-text {
-                font-size: 22px;
-            }
-
             .hero {
                 padding-top: calc(80px + var(--space-2xl));
+            }
+
+            .med-cards {
+                grid-template-columns: 1fr;
             }
 
             .footer-container {
                 flex-direction: column;
                 text-align: center;
             }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
-        /* Selection */
         ::selection {
             background: rgba(28,66,49,0.15);
             color: var(--argo-green);
@@ -557,12 +657,14 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <img src="logo.png" alt="ArgoMD" class="logo-mark" srcset="logo.png 1x, logo@2x.png 2x">
-                <span class="logo-text">Argo<span style="color: var(--argo-gold);">MD</span></span>
+                <span class="logo-text">Argo<span>MD</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#medications">Medications</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
+            <a href="#" class="nav-cta">Get Started</a>
             <button class="mobile-menu-btn" aria-label="Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="3" y1="6" x2="21" y2="6"/>
@@ -578,14 +680,13 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="hero-badge-dot"></span>
-                    Coming Soon
+                    Clinically-Proven GLP-1 Medications
                 </div>
-                <h1>Modern Telehealth <em>Coming Soon</em></h1>
-                <p class="hero-subtitle">ArgoMD is preparing to launch telehealth services. We are working diligently to meet all regulatory requirements and ensure the highest standard of care.</p>
+                <h1>Lose Weight with <em>GLP-1</em></h1>
+                <p class="hero-subtitle">Get prescribed Semaglutide or Tirzepatide online. Real doctors, real results, delivered to your door. No office visits required.</p>
                 <div class="hero-ctas">
-                    <a href="#contact" class="btn-primary">Get Notified</a>
-                    <a href="#about" class="btn-secondary">Learn More</a>
+                    <a href="#" class="btn-primary">Get Started</a>
+                    <a href="#medications" class="btn-secondary">View Medications</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -596,37 +697,126 @@
         </div>
     </section>
 
-    <!-- Coming Soon -->
-    <section class="coming-soon-section">
+    <!-- Medications -->
+    <section class="medications" id="medications">
         <div class="section-container">
-            <span class="section-label">Status</span>
-            <h2>Preparing for Launch</h2>
-            <p>ArgoMD is currently in development. We are establishing partnerships with licensed healthcare providers and completing the necessary certifications to offer compliant telehealth services. Check back for updates on our launch timeline.</p>
+            <div class="section-header">
+                <span class="section-label">Medications</span>
+                <h2>GLP-1 Weight Loss Treatments</h2>
+                <p>All medications are prescribed by licensed physicians and shipped from state-regulated pharmacies. No hidden fees.</p>
+            </div>
+            <div class="med-cards">
+                <div class="med-card">
+                    <div class="med-card-badge">Most Popular</div>
+                    <h3>Compounded Semaglutide</h3>
+                    <div class="price">$129<span>/month</span></div>
+                    <ul>
+                        <li>Weekly injection</li>
+                        <li>15-20% average body weight loss</li>
+                        <li>Appetite control within 48 hours</li>
+                        <li>Improves blood sugar & blood pressure</li>
+                        <li>Discreet packaging</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Get Started</a>
+                </div>
+                <div class="med-card">
+                    <div class="med-card-badge">Maximum Results</div>
+                    <h3>Compounded Tirzepatide</h3>
+                    <div class="price">$229<span>/month</span></div>
+                    <ul>
+                        <li>Weekly injection</li>
+                        <li>20-22% average body weight loss</li>
+                        <li>Dual GLP-1/GIP receptor agonist</li>
+                        <li>Appetite control within first dose</li>
+                        <li>Discreet packaging</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Get Started</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section class="about" id="about">
-        <div class="about-grid">
-            <div class="about-content">
-                <span class="section-label">About ArgoMD</span>
-                <h2>A New Approach to Telehealth</h2>
-                <p>ArgoMD is being built to provide accessible, quality healthcare through modern technology. Our platform will connect patients with licensed medical professionals for virtual consultations.</p>
-                <p>We believe healthcare should be convenient without compromising on quality or compliance. Every aspect of our service is being designed to meet or exceed regulatory standards.</p>
-                <p>Our team is currently working through the necessary licensing, provider partnerships, and technical infrastructure to bring ArgoMD to you.</p>
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Simple Process</span>
+                <h2>How It Works</h2>
+                <p>Get started in minutes, not weeks. No waiting rooms, no insurance hassles.</p>
             </div>
-            <div class="about-logo">
-                <img src="logo.png" alt="ArgoMD Logo" srcset="logo.png 1x, logo@2x.png 2x">
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Complete Online Visit</h3>
+                    <p>Answer a few questions about your health and weight loss goals. Takes under 5 minutes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Doctor Reviews</h3>
+                    <p>A licensed physician reviews your information and creates a personalized treatment plan.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Shipped to Your Door</h3>
+                    <p>Your medication ships from a state-regulated pharmacy in discreet packaging within 48-72 hours.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
+    <!-- FAQ -->
+    <section class="faq" id="faq">
         <div class="section-container">
-            <h2>Stay Informed</h2>
-            <p>Want to know when ArgoMD launches? Leave your email and we'll notify you when services become available.</p>
-            <a href="mailto:info@argomd.com" class="contact-email">Contact Us</a>
+            <div class="section-header">
+                <span class="section-label">Common Questions</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What states do you serve?</div>
+                    <div class="faq-answer">
+                        <p>All 50 states are served by ArgoMD. We work with licensed physicians and pharmacies nationwide to ensure you have access to treatment regardless of your location.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Who are your pharmacies?</div>
+                    <div class="faq-answer">
+                        <p>ArgoMD partners with Rush Pharmacy, a state-regulated pharmacy that specializes in compounded medications. All medications are prepared in licensed facilities that meet or exceed regulatory standards.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Who is your provider network?</div>
+                    <div class="faq-answer">
+                        <p>ArgoMD works with Locum Tele, a network of board-certified physicians licensed to practice telemedicine across all 50 states. Every doctor in our network has specific training in weight management and obesity medicine.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How long does shipping take?</div>
+                    <div class="faq-answer">
+                        <p>Once your prescription is approved, medications are typically shipped within 24-48 hours and delivered within 3-5 business days. All shipments include tracking and are packaged discreetly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do consultations work?</div>
+                    <div class="faq-answer">
+                        <p>Consultations are conducted entirely online through our secure platform. You'll complete a medical questionnaire, and a licensed physician will review your information. If approved, your prescription is sent directly to our pharmacy partner. No video calls or phone appointments required.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is your refund policy?</div>
+                    <div class="faq-answer">
+                        <p>If you are not approved for treatment after your consultation, you will receive a full refund. Once medication has been shipped, refunds are handled on a case-by-case basis. Please contact support@argomd.com for assistance with any order issues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="disclaimer-container">
+            <p>*The featured products include compounded products which have not been approved by the FDA. The FDA does not verify the safety or effectiveness of compounded drugs. Individual results may vary. These medications are not appropriate for all patients and require a prescription from a licensed physician.</p>
+            <p>ArgoMD is a telehealth platform that connects patients with licensed medical providers. We do not directly provide medical services or dispense medications.</p>
         </div>
     </section>
 
@@ -637,6 +827,12 @@
                 <img src="logo.png" alt="ArgoMD" srcset="logo.png 1x, logo@2x.png 2x">
                 <span>ArgoMD</span>
             </div>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">HIPAA Notice</a></li>
+                <li><a href="mailto:support@argomd.com">Contact</a></li>
+            </ul>
             <p>&copy; 2026 ArgoMD. All rights reserved.</p>
         </div>
     </footer>
@@ -650,6 +846,22 @@
             } else {
                 nav.classList.remove('scrolled');
             }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked if wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
