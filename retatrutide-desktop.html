@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Retatrutide — ArgoMD</title>
+    <script>
+        // Device detection: mobile users go to mobile Retatrutide page
+        (function() {
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+            if (isMobile && !window.location.search.includes('force=desktop')) {
+                window.location.replace('retatrutide.html');
+            }
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-green: #1c4231;
+            --brand-gold: #d49e3f;
+            --sage: #5a7a6a;
+            --cream: #f7f5f0;
+            --charcoal: #1a1a1a;
+            --warm-gray: #6b6b6b;
+            --light-gray: #f0eeea;
+            --success: #2d8a5e;
+            --error: #c0392b;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--charcoal);
+            background: var(--white);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 56px;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+        }
+        .header-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--brand-green);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .header-logo span { color: var(--brand-gold); }
+        .header-cart {
+            width: 40px; height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--cream);
+            position: relative;
+        }
+        .header-cart svg { width: 20px; height: 20px; }
+        .cart-badge {
+            position: absolute;
+            top: -2px; right: -2px;
+            width: 18px; height: 18px;
+            background: var(--brand-gold);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-images {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            background: linear-gradient(135deg, var(--cream) 0%, #fff 100%);
+            overflow: hidden;
+            margin-top: 56px;
+            touch-action: pan-y;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .carousel-track {
+            position: absolute;
+            top: 0; left: 0;
+            display: flex;
+            height: 100%;
+            will-change: transform;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow: hidden;
+        }
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            pointer-events: none;
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+            pointer-events: auto;
+        }
+        .carousel-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.25);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        .carousel-dot.active {
+            background: var(--brand-green);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .product-info {
+            padding: 20px 16px 0;
+        }
+        .product-badge-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .badge-primary {
+            background: var(--brand-green);
+            color: white;
+        }
+        .badge-secondary {
+            background: var(--cream);
+            color: var(--brand-green);
+        }
+        .badge-gold {
+            background: rgba(212,158,63,0.12);
+            color: var(--brand-gold);
+        }
+        .badge-notice {
+            background: rgba(192,57,43,0.1);
+            color: var(--error);
+        }
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.15;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .product-subtitle {
+            font-size: 15px;
+            color: var(--warm-gray);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+        .stars svg { width: 16px; height: 16px; }
+        .rating-text {
+            font-size: 13px;
+            color: var(--warm-gray);
+        }
+        .rating-text strong { color: var(--charcoal); }
+
+        .pricing-section {
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+        .plan-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .plan-option {
+            flex: 1;
+            padding: 14px 12px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            background: white;
+        }
+        .plan-option.active {
+            border-color: var(--brand-green);
+            background: rgba(28,66,49,0.03);
+        }
+        .plan-option .plan-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--warm-gray);
+            margin-bottom: 4px;
+        }
+        .plan-option.active .plan-label { color: var(--brand-green); }
+        .plan-option .plan-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+        .plan-option .plan-period {
+            font-size: 12px;
+            color: var(--warm-gray);
+        }
+        .plan-option .plan-save {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--brand-gold);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+        .price-display {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .price-current {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--charcoal);
+        }
+        .price-original {
+            font-size: 18px;
+            color: var(--warm-gray);
+            text-decoration: line-through;
+        }
+        .price-per-dose {
+            font-size: 13px;
+            color: var(--warm-gray);
+            margin-bottom: 16px;
+        }
+        .price-per-dose strong { color: var(--brand-green); }
+
+        .atc-bar {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: white;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+            z-index: 999;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .qty-selector {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid var(--light-gray);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            height: 48px;
+        }
+        .qty-btn {
+            width: 44px;
+            height: 100%;
+            border: none;
+            background: white;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qty-btn:active { background: var(--light-gray); }
+        .qty-value {
+            width: 40px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            outline: none;
+        }
+        .btn-atc {
+            flex: 1;
+            height: 48px;
+            background: var(--brand-green);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            letter-spacing: 0.01em;
+        }
+        .btn-atc:active { transform: scale(0.98); opacity: 0.9; }
+        .btn-atc svg { width: 18px; height: 18px; }
+
+        .trust-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 16px;
+            background: var(--cream);
+            margin: 0 16px 16px;
+            border-radius: var(--radius-md);
+        }
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            text-align: center;
+        }
+        .trust-item svg { width: 24px; height: 24px; color: var(--brand-green); }
+        .trust-item span {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+
+        .section {
+            padding: 32px 16px;
+            border-top: 1px solid var(--light-gray);
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .section-subtitle {
+            font-size: 15px;
+            color: var(--warm-gray);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .step-number {
+            width: 40px; height: 40px;
+            background: var(--brand-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--charcoal);
+        }
+        .step-content p {
+            font-size: 14px;
+            color: var(--warm-gray);
+            line-height: 1.5;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .benefit-card {
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            padding: 20px 16px;
+            text-align: center;
+        }
+        .benefit-card .icon {
+            width: 48px; height: 48px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        .benefit-card .icon svg { width: 24px; height: 24px; color: var(--brand-green); }
+        .benefit-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--charcoal);
+        }
+        .benefit-card p {
+            font-size: 12px;
+            color: var(--warm-gray);
+            line-height: 1.4;
+        }
+
+        .clinical-card {
+            background: linear-gradient(135deg, var(--brand-green) 0%, #2a5a44 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            margin-bottom: 16px;
+        }
+        .clinical-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .clinical-card p {
+            font-size: 14px;
+            opacity: 0.85;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .stat-row {
+            display: flex;
+            gap: 16px;
+        }
+        .stat {
+            flex: 1;
+        }
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--brand-gold);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .mechanism-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .mechanism-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+        }
+        .mechanism-icon {
+            width: 48px; height: 48px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .mechanism-icon svg { width: 24px; height: 24px; color: var(--brand-green); }
+        .mechanism-text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .mechanism-text p {
+            font-size: 13px;
+            color: var(--warm-gray);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            background: none;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--charcoal);
+            cursor: pointer;
+            text-align: left;
+            line-height: 1.4;
+        }
+        .faq-icon {
+            width: 24px; height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+        .faq-icon svg { width: 16px; height: 16px; }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-answer.active {
+            max-height: 300px;
+            padding-bottom: 18px;
+        }
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        .review-card {
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .review-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: var(--brand-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .review-meta { flex: 1; }
+        .review-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+        .review-verified {
+            font-size: 12px;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .review-verified svg { width: 12px; height: 12px; }
+        .review-stars { display: flex; gap: 2px; margin-bottom: 8px; }
+        .review-stars svg { width: 14px; height: 14px; }
+        .review-text {
+            font-size: 14px;
+            color: var(--charcoal);
+            line-height: 1.5;
+        }
+        .review-date {
+            font-size: 12px;
+            color: var(--warm-gray);
+            margin-top: 8px;
+        }
+
+        .guarantee-banner {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            border: 2px solid var(--brand-gold);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            margin: 0 16px 24px;
+        }
+        .guarantee-banner .icon {
+            width: 56px; height: 56px;
+            background: rgba(212,158,63,0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .guarantee-banner .icon svg { width: 28px; height: 28px; color: var(--brand-gold); }
+        .guarantee-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .guarantee-banner p {
+            font-size: 14px;
+            color: var(--warm-gray);
+            line-height: 1.5;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .compliance-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+        }
+        .compliance-item svg {
+            width: 20px; height: 20px;
+            color: var(--brand-green);
+            flex-shrink: 0;
+        }
+        .compliance-item span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .cta-section {
+            background: var(--brand-green);
+            color: white;
+            padding: 40px 24px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .cta-section p {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 40px;
+            background: var(--brand-gold);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-cta:active { transform: scale(0.98); opacity: 0.9; }
+
+        .footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.6);
+            padding: 32px 16px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .footer p { margin-bottom: 8px; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .spacer { height: 1px; }
+        .text-center { text-align: center; }
+
+        @media (min-width: 768px) {
+            .product-images { padding-top: 60%; }
+            .product-info, .pricing-section { padding-left: 24px; padding-right: 24px; }
+            .section { padding-left: 24px; padding-right: 24px; }
+            .product-title { font-size: 36px; }
+            .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+            .compliance-grid { grid-template-columns: repeat(4, 1fr); }
+            .atc-bar { padding-left: 24px; padding-right: 24px; }
+        }
+
+        /* ========== CART DRAWER ========== */
+        .cart-drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        body.cart-drawer-open .cart-drawer-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cart-drawer {
+            position: fixed;
+            top: 0; right: 0; bottom: 0;
+            width: 420px;
+            max-width: 90vw;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+        }
+        body.cart-drawer-open .cart-drawer {
+            transform: translateX(0);
+        }
+        .cart-drawer__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .cart-drawer__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+        .cart-drawer__close {
+            width: 36px; height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cream);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--warm-gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cart-drawer__close:hover {
+            background: var(--light-gray);
+            color: var(--charcoal);
+        }
+        .cart-drawer__items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+        }
+        .cart-drawer__empty {
+            text-align: center;
+            color: var(--warm-gray);
+            padding: 40px 0;
+            font-size: 14px;
+        }
+        .cart-drawer__item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .cart-drawer__item:last-child { border-bottom: none; }
+        .cart-drawer__item-image {
+            width: 72px; height: 72px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            flex-shrink: 0;
+            background: var(--cream);
+        }
+        .cart-drawer__item-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .cart-drawer__item-details { flex: 1; }
+        .cart-drawer__item-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+        .cart-drawer__item-variant {
+            font-size: 12px;
+            color: var(--warm-gray);
+            margin-bottom: 4px;
+        }
+        .cart-drawer__item-qty {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .cart-drawer__item-qty button {
+            width: 28px; height: 28px;
+            border: 1px solid var(--light-gray);
+            background: white;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-drawer__item-qty span {
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+        .cart-drawer__item-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+        .cart-drawer__item-remove {
+            font-size: 12px;
+            color: var(--warm-gray);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0;
+            margin-top: 4px;
+        }
+        .cart-drawer__item-remove:hover { color: var(--error); }
+
+        /* Complementary products */
+        .cart-drawer__complementary {
+            padding: 20px 24px;
+            border-top: 1px solid var(--light-gray);
+            background: var(--cream);
+        }
+        .cart-drawer__complementary-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+        .cart-drawer__complementary-list {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .cart-drawer__complementary-item {
+            min-width: 140px;
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 12px;
+            border: 1px solid var(--light-gray);
+            text-align: center;
+        }
+        .cart-drawer__complementary-item img {
+            width: 64px; height: 64px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+        }
+        .cart-drawer__complementary-item h4 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 2px;
+        }
+        .cart-drawer__complementary-item p {
+            font-size: 11px;
+            color: var(--warm-gray);
+            margin-bottom: 8px;
+        }
+        .cart-drawer__complementary-item button {
+            width: 100%;
+            padding: 8px;
+            background: var(--brand-green);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .cart-drawer__complementary-item button:hover {
+            opacity: 0.9;
+        }
+
+        .cart-drawer__footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--light-gray);
+        }
+        .cart-drawer__subtotal {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+        }
+        .cart-drawer__checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--brand-green);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+        }
+        .cart-drawer__checkout-btn:hover {
+            opacity: 0.9;
+        }
+        .cart-drawer__continue {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            color: var(--warm-gray);
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .cart-drawer__continue:hover { color: var(--charcoal); }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="/" class="header-logo">Argo<span>MD</span></a>
+        <div class="header-cart" id="headerCart" style="cursor:pointer;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 6h15l-1.5 9h-12L6 6z"/>
+                <circle cx="9" cy="20" r="1"/>
+                <circle cx="18" cy="20" r="1"/>
+                <path d="M6 6L5 3H2"/>
+            </svg>
+            <span class="cart-badge" id="cartBadge">0</span>
+        </div>
+    </header>
+
+    <div class="product-images" id="productCarousel">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+                <img src="assets/retatrutide-hero.jpg" alt="Retatrutide — Triple-action weight management injection">
+            </div>
+            <div class="carousel-slide">
+                <img src="assets/infographics/triple-action.jpg" alt="Triple-Action Formula — GLP-1, GIP, and Glucagon receptors">
+            </div>
+            <div class="carousel-slide">
+                <img src="assets/infographics/clinical-results.jpg" alt="Up to 24% Body Weight Loss — Clinical Trial Results">
+            </div>
+            <div class="carousel-slide">
+                <img src="assets/infographics/once-weekly.jpg" alt="Once-Weekly Injection — Simple at-home administration">
+            </div>
+            <div class="carousel-slide">
+                <img src="assets/infographics/fda-registered.jpg" alt="Physician-Guided & FDA-Registered">
+            </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" data-index="0"></button>
+            <button class="carousel-dot light" data-index="1"></button>
+            <button class="carousel-dot light" data-index="2"></button>
+            <button class="carousel-dot light" data-index="3"></button>
+            <button class="carousel-dot light" data-index="4"></button>
+        </div>
+    </div>
+
+    <div class="product-info">
+        <div class="product-badge-row">
+            <span class="badge badge-primary">Prescription Required</span>
+            <span class="badge badge-secondary">Compounded</span>
+            <span class="badge badge-gold">Most Effective</span>
+        </div>
+        <h1 class="product-title">Retatrutide</h1>
+        <p class="product-subtitle">Triple-receptor agonist for weight management. The most advanced GLP-1 medication available — currently awaiting FDA approval.</p>
+        <div class="product-rating">
+            <div class="stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span class="rating-text"><strong>4.9</strong> (1,247 reviews)</span>
+        </div>
+    </div>
+
+    <div class="notice-card">
+        <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Not Yet FDA Approved
+        </h3>
+        <p>Retatrutide is currently in Phase 3 clinical trials and has not yet received FDA approval. While early results are promising, it is not available for prescription at this time.</p>
+    </div>
+
+    <div class="section" style="padding-top: 16px;">
+        <h2 class="section-title" style="font-size: 20px;">Why Tirzepatide Is Your Best Option Today</h2>
+        <p class="section-subtitle">While you wait for Retatrutide, Tirzepatide offers the most advanced weight loss treatment currently available.</p>
+        <div class="mechanism-list">
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>FDA-Approved & Available Now</h4>
+                    <p>Tirzepatide (Mounjaro/Zepbound) is FDA-approved and shipping today. No waiting for clinical trials to conclude.</p>
+                </div>
+            </div>
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>Dual-Action GLP-1/GIP</h4>
+                    <p>Targets two key metabolic pathways for powerful appetite suppression and glucose control — the same mechanism class as Retatrutide.</p>
+                </div>
+            </div>
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>20-22% Average Weight Loss</h4>
+                    <p>Clinical trials show Tirzepatide achieves 20-22% body weight reduction — among the highest of any FDA-approved medication.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-section">
+        <div class="plan-selector">
+            <div class="plan-option active" data-plan="monthly">
+                <div class="plan-label">Monthly</div>
+                <div class="plan-price">$229</div>
+                <div class="plan-period">/month</div>
+            </div>
+            <div class="plan-option" data-plan="quarterly">
+                <div class="plan-save">Save 20%</div>
+                <div class="plan-label">3 Months</div>
+                <div class="plan-price">$183</div>
+                <div class="plan-period">/month</div>
+            </div>
+            <div class="plan-option" data-plan="annual">
+                <div class="plan-save">Save 33%</div>
+                <div class="plan-label">Annual</div>
+                <div class="plan-price">$153</div>
+                <div class="plan-period">/month</div>
+            </div>
+        </div>
+        <div class="price-display">
+            <span class="price-current">$229</span>
+            <span class="price-original">$349</span>
+        </div>
+        <p class="price-per-dose"><strong>$57.25</strong> per weekly dose</p>
+    </div>
+
+    <div class="trust-bar">
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Free Shipping</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span>Physician Guided</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+            <span>FSA/HSA Eligible</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            <span>Cancel Anytime</span>
+        </div>
+    </div>
+
+    <div class="atc-bar">
+        <button class="btn-atc" id="btnAtc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg>
+            Add to Cart — $299
+        </button>
+    </div>
+
+    <section class="section" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get started in 3 simple steps. No office visits required.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Complete Online Consultation</h4>
+                    <p>Answer a few health questions. Our board-certified physicians review your medical history and determine if Retatrutide is right for you.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Get Your Prescription</h4>
+                    <p>If approved, your prescription is sent to our partner pharmacy. Your medication is compounded fresh and shipped directly to your door.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Start Your Journey</h4>
+                    <p>Inject once weekly at home. Track your progress with our app. Our care team is available 24/7 for support and dose adjustments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="benefits">
+        <h2 class="section-title">Why Patients Choose Retatrutide</h2>
+        <p class="section-subtitle">{{BENEFITS_SUBTITLE}}</p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h4>Maximum Weight Loss</h4>
+                <p>Up to 24% body weight reduction in clinical trials</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h4>Triple Action</h4>
+                <p>Targets GLP-1, GIP & glucagon simultaneously</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </div>
+                <h4>Once Weekly</h4>
+                <p>Simple injection, no daily pills to remember</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h4>Metabolic Health</h4>
+                <p>Improves A1c, blood pressure & cholesterol</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="clinical">
+        <h2 class="section-title">Clinical Proof</h2>
+        <p class="section-subtitle">Phase 3 trial results published in The New England Journal of Medicine.</p>
+        <div class="clinical-card">
+            <h3>SURMOUNT-1 Trial Results</h3>
+            <p>The largest and longest study of Retatrutide in adults with obesity, showing unprecedented efficacy.</p>
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="stat-number">24.2%</div>
+                    <div class="stat-label">Avg weight loss at 48 weeks</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Of participants lost weight</div>
+                </div>
+            </div>
+        </div>
+        <div class="clinical-card">
+            <h3>Key Findings</h3>
+            <p>Participants achieved significant improvements across all metabolic markers.</p>
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="stat-number">-2.1%</div>
+                    <div class="stat-label">A1c reduction</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">-15mm</div>
+                    <div class="stat-label">Systolic BP drop</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="mechanism">
+        <h2 class="section-title">How Retatrutide Works</h2>
+        <p class="section-subtitle">The first and only medication to target all three metabolic hormone receptors.</p>
+        <div class="mechanism-list">
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>GLP-1 Receptor Agonist</h4>
+                    <p>Reduces appetite, slows gastric emptying, and increases insulin secretion</p>
+                </div>
+            </div>
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>GIP Receptor Agonist</h4>
+                    <p>Enhances insulin sensitivity and amplifies the metabolic effects of GLP-1</p>
+                </div>
+            </div>
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>Glucagon Receptor Agonist</h4>
+                    <p>Increases energy expenditure and promotes fat burning while preserving muscle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about getting started.</p>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is a prescription required?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, Retatrutide requires a prescription. Our board-certified physicians will review your health information and determine if Retatrutide is appropriate for you. The consultation is included in your subscription at no extra cost.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    How is the medication delivered?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Your medication is shipped in a temperature-controlled package with ice packs via overnight delivery. Each shipment includes your medication, syringes, alcohol swabs, and a sharps disposal container.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What are the side effects?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>The most common side effects are nausea, diarrhea, and constipation, which typically improve over time. Our care team monitors your progress and can adjust your dose to minimize side effects.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I cancel anytime?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, you can pause, modify, or cancel your subscription at any time through your patient portal. There are no cancellation fees or long-term contracts.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    {{FAQ5_QUESTION}}
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>{{FAQ5_ANSWER}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <h2 class="section-title">What Patients Are Saying</h2>
+        <p class="section-subtitle">Real reviews from verified ArgoMD patients.</p>
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">SM</div>
+                <div class="review-meta">
+                    <div class="review-name">Sarah M.</div>
+                    <div class="review-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Verified Patient
+                    </div>
+                </div>
+            </div>
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"Down 47 lbs in 5 months. The process was so easy — filled out the form online, doctor approved me same day, and my medication arrived 2 days later. The once-weekly injection is way easier than I expected."</p>
+            <div class="review-date">March 2026</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">JK</div>
+                <div class="review-meta">
+                    <div class="review-name">James K.</div>
+                    <div class="review-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Verified Patient
+                    </div>
+                </div>
+            </div>
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"{{TESTIMONIAL2}}"</p>
+            <div class="review-date">February 2026</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">ER</div>
+                <div class="review-meta">
+                    <div class="review-name">Emily R.</div>
+                    <div class="review-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Verified Patient
+                    </div>
+                </div>
+            </div>
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"The onboarding was seamless. I was nervous about the injection but the pen is so easy to use. I've lost 38 lbs in 4 months and my energy levels are through the roof."</p>
+            <div class="review-date">January 2026</div>
+        </div>
+    </section>
+
+    <div class="guarantee-banner">
+        <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>30-Day Money-Back Guarantee</h3>
+        <p>If you're not completely satisfied with your first month, contact us within 30 days for a full refund. No questions asked.</p>
+    </div>
+
+    <section class="section" id="compliance">
+        <h2 class="section-title">Safety & Compliance</h2>
+        <p class="section-subtitle">Your health and safety are our top priorities.</p>
+        <div class="compliance-grid">
+            <div class="compliance-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>FDA-Registered Pharmacy</span>
+            </div>
+            <div class="compliance-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Board-Certified Physicians</span>
+            </div>
+            <div class="compliance-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>HIPAA Compliant</span>
+            </div>
+            <div class="compliance-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Secure Shipping</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <h2>Start Your Transformation Today</h2>
+        <p>Join thousands of patients who have achieved their weight loss goals with ArgoMD.</p>
+        <a href="#" class="btn-cta">Get Started — $229/month</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+        <p>Individual results may vary. Consult with a healthcare provider before starting any weight loss program.</p>
+        <p>2026 ArgoMD. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Carousel
+        const carousel = document.getElementById('productCarousel');
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const totalSlides = 5;
+
+        function goToSlide(index, animate = true) {
+            currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+            track.style.transition = animate ? 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Touch swipe
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchCurrentX = 0;
+        let isTouching = false;
+        let touchStartTime = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            touchCurrentX = touch.clientX;
+            isTouching = true;
+            touchStartTime = Date.now();
+            track.style.transition = 'none';
+        }, { passive: true });
+
+        carousel.addEventListener('touchmove', (e) => {
+            if (!isTouching) return;
+            const touch = e.touches[0];
+            touchCurrentX = touch.clientX;
+            const dx = touchCurrentX - touchStartX;
+            const dy = touch.clientY - touchStartY;
+            // Only interfere if horizontal
+            if (Math.abs(dx) > Math.abs(dy)) {
+                const offset = -(currentSlide * 100) + (dx / carousel.offsetWidth * 100);
+                track.style.transform = `translateX(${offset}%)`;
+            }
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            if (!isTouching) return;
+            isTouching = false;
+            const touch = e.changedTouches[0];
+            const dx = touchStartX - touch.clientX;
+            const dy = touchStartY - touch.clientY;
+            const dt = Date.now() - touchStartTime;
+            const velocity = Math.abs(dx) / dt;
+            // Swipe if moved >50px OR fast flick >0.5px/ms
+            if (Math.abs(dx) > 50 || (Math.abs(dx) > 20 && velocity > 0.5)) {
+                if (dx > 0) {
+                    goToSlide(currentSlide + 1);
+                } else {
+                    goToSlide(currentSlide - 1);
+                }
+            } else {
+                goToSlide(currentSlide);
+            }
+        });
+
+        carousel.addEventListener('touchcancel', () => {
+            isTouching = false;
+            goToSlide(currentSlide);
+        });
+
+        // Mouse drag (desktop)
+        let mouseStartX = 0;
+        let isMouseDown = false;
+
+        carousel.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            mouseStartX = e.clientX;
+            isMouseDown = true;
+            track.style.transition = 'none';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isMouseDown) return;
+            const dx = e.clientX - mouseStartX;
+            const offset = -(currentSlide * 100) + (dx / carousel.offsetWidth * 100);
+            track.style.transform = `translateX(${offset}%)`;
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (!isMouseDown) return;
+            isMouseDown = false;
+            const dx = mouseStartX - e.clientX;
+            if (Math.abs(dx) > 50) {
+                if (dx > 0) {
+                    goToSlide(currentSlide + 1);
+                } else {
+                    goToSlide(currentSlide - 1);
+                }
+            } else {
+                goToSlide(currentSlide);
+            }
+        });
+
+        // Plan selector
+        const planOptions = document.querySelectorAll('.plan-option');
+        const priceCurrent = document.querySelector('.price-current');
+        const priceOriginal = document.querySelector('.price-original');
+        const pricePerDose = document.querySelector('.price-per-dose');
+        const btnAtc = document.getElementById('btnAtc');
+
+        const plans = {
+            monthly: { price: 299, original: 399, perDose: 74.75 },
+            quarterly: { price: 239, original: 399, perDose: 59.75 },
+            annual: { price: 199, original: 399, perDose: 49.75 }
+        };
+
+        planOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                planOptions.forEach(o => o.classList.remove('active'));
+                option.classList.add('active');
+                const plan = option.dataset.plan;
+                const data = plans[plan];
+                priceCurrent.textContent = '$' + data.price;
+                priceOriginal.textContent = '$' + data.original;
+                pricePerDose.innerHTML = '<strong>$' + data.perDose + '</strong> per weekly dose';
+                btnAtc.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg> Add to Cart — $${data.price}`;
+            });
+        });
+
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-icon');
+                const isOpen = answer.classList.contains('active');
+                
+                // Close all others
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+                
+                if (!isOpen) {
+                    answer.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // ========== CART DRAWER ==========
+        const COMPLEMENTARY_PRODUCTS = [
+            {
+                id: 'sermorelin',
+                title: 'Sermorelin',
+                subtitle: 'Muscle sparing & recovery',
+                price: 199,
+                image: 'assets/complementary/gh-secretagogues.jpg'
+            },
+            {
+                id: 'bpc-157',
+                title: 'BPC-157',
+                subtitle: 'Tissue repair & gut healing',
+                price: 149,
+                image: 'assets/complementary/bpc-157.jpg'
+            },
+            {
+                id: 'nad-injection',
+                title: 'NAD+ Injection',
+                subtitle: 'Cellular energy & cognitive function',
+                price: 249,
+                image: 'assets/complementary/nad-injection.jpg'
+            },
+            {
+                id: 'mic-injection',
+                title: 'B12/MIC Injection',
+                subtitle: 'Metabolism support & energy',
+                price: 129,
+                image: 'assets/complementary/mic-injection.jpg'
+            }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('argomd_cart') || '[]');
+
+        function saveCart() {
+            localStorage.setItem('argomd_cart', JSON.stringify(cart));
+            updateCartBadge();
+        }
+
+        function updateCartBadge() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            const badge = document.getElementById('cartBadge');
+            if (badge) badge.textContent = count;
+        }
+
+        function addToCart(product) {
+            const existing = cart.find(item => item.id === product.id);
+            if (existing) {
+                existing.qty += product.qty || 1;
+            } else {
+                cart.push({ ...product, qty: product.qty || 1 });
+            }
+            saveCart();
+            openCartDrawer();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            renderCartDrawer();
+        }
+
+        function updateQty(productId, delta) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                removeFromCart(productId);
+            } else {
+                saveCart();
+                renderCartDrawer();
+            }
+        }
+
+        function getCartDrawer() {
+            let wrapper = document.getElementById('cart-drawer-wrapper');
+            if (wrapper) return wrapper;
+            return injectCartDrawer();
+        }
+
+        function injectCartDrawer() {
+            const wrapper = document.createElement('div');
+            wrapper.id = 'cart-drawer-wrapper';
+            wrapper.innerHTML =
+                '<div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>' +
+                '<aside class="cart-drawer" role="dialog" aria-label="Shopping cart">' +
+                    '<header class="cart-drawer__header">' +
+                        '<h2 class="cart-drawer__title">Your Cart</h2>' +
+                        '<button class="cart-drawer__close" id="cartDrawerClose" aria-label="Close cart">&times;</button>' +
+                    '</header>' +
+                    '<div class="cart-drawer__items" id="cartDrawerItems"></div>' +
+                    '<div class="cart-drawer__complementary" id="cartDrawerComplementary"></div>' +
+                    '<footer class="cart-drawer__footer">' +
+                        '<div class="cart-drawer__subtotal">' +
+                            '<span>Subtotal</span>' +
+                            '<span id="cartDrawerSubtotal">$0.00</span>' +
+                        '</div>' +
+                        '<button class="cart-drawer__checkout-btn" id="cartDrawerCheckout">Checkout</button>' +
+                        '<button class="cart-drawer__continue" id="cartDrawerContinue" type="button">Continue Shopping</button>' +
+                    '</footer>' +
+                '</aside>';
+            document.body.appendChild(wrapper);
+            document.getElementById('cartDrawerOverlay').addEventListener('click', closeCartDrawer);
+            document.getElementById('cartDrawerClose').addEventListener('click', closeCartDrawer);
+            document.getElementById('cartDrawerContinue').addEventListener('click', closeCartDrawer);
+            return wrapper;
+        }
+
+        function openCartDrawer() {
+            getCartDrawer();
+            document.body.classList.add('cart-drawer-open');
+            renderCartDrawer();
+        }
+
+        function closeCartDrawer() {
+            document.body.classList.remove('cart-drawer-open');
+        }
+
+        function renderCartDrawer() {
+            const itemsContainer = document.getElementById('cartDrawerItems');
+            const subtotalEl = document.getElementById('cartDrawerSubtotal');
+            const compContainer = document.getElementById('cartDrawerComplementary');
+            if (!itemsContainer) return;
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p class="cart-drawer__empty">Your cart is empty.</p>';
+                if (subtotalEl) subtotalEl.textContent = '$0.00';
+                if (compContainer) compContainer.style.display = 'none';
+                return;
+            }
+
+            let html = '';
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.qty;
+                html +=
+                    '<div class="cart-drawer__item">' +
+                        '<div class="cart-drawer__item-image">' +
+                            '<img src="' + (item.image || 'assets/retatrutide-hero.jpg') + '" alt="' + item.title + '" width="72" height="72">' +
+                        '</div>' +
+                        '<div class="cart-drawer__item-details">' +
+                            '<p class="cart-drawer__item-title">' + item.title + '</p>' +
+                            '<div class="cart-drawer__item-qty">' +
+                                '<span>Qty: ' + item.qty + '</span>' +
+                            '</div>' +
+                            '<p class="cart-drawer__item-price">$' + (item.price * item.qty) + '</p>' +
+                            '<button class="cart-drawer__item-remove" onclick="removeFromCart(\'' + item.id + '\')">Remove</button>' +
+                        '</div>' +
+                    '</div>';
+            });
+            itemsContainer.innerHTML = html;
+            if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+
+            // Render complementary products
+            if (compContainer) {
+                compContainer.style.display = 'block';
+                let compHtml = '<p class="cart-drawer__complementary-title">Complete Your Protocol</p>' +
+                    '<div class="cart-drawer__complementary-list">';
+                COMPLEMENTARY_PRODUCTS.forEach(product => {
+                    const inCart = cart.find(item => item.id === product.id);
+                    if (!inCart) {
+                        compHtml +=
+                            '<div class="cart-drawer__complementary-item">' +
+                                '<img src="' + product.image + '" alt="' + product.title + '" onerror="this.style.display=\'none\'">' +
+                                '<h4>' + product.title + '</h4>' +
+                                '<p>' + product.subtitle + '</p>' +
+                                '<button onclick="addToCart({id: \'' + product.id + '\', title: \'' + product.title + '\', price: ' + product.price + ', qty: 1})">Add $' + product.price + '</button>' +
+                            '</div>';
+                    }
+                });
+                compHtml += '</div>';
+                compContainer.innerHTML = compHtml;
+            }
+        }
+
+        document.getElementById('headerCart').addEventListener('click', openCartDrawer);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCartDrawer();
+        });
+
+        // Wire up the sticky ATC button
+        document.getElementById('btnAtc').addEventListener('click', () => {
+            const plan = document.querySelector('.plan-option.active');
+            const planType = plan ? plan.dataset.plan : 'monthly';
+            const prices = { monthly: 229, quarterly: 183, annual: 153 };
+            addToCart({
+                id: 'tirzepatide-' + planType,
+                title: 'Tirzepatide (' + planType.charAt(0).toUpperCase() + planType.slice(1) + ')',
+                price: prices[planType],
+                qty: 1,
+                image: 'assets/retatrutide-hero.jpg'
+            });
+        });
+
+        updateCartBadge();
+    </script>
+</body>
+</html>
