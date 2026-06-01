@@ -191,6 +191,33 @@
             background: rgba(192,57,43,0.1);
             color: var(--error);
         }
+        .notice-card {
+            background: rgba(192,57,43,0.06);
+            border: 1px solid rgba(192,57,43,0.15);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin: 0 16px 16px;
+        }
+        .notice-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--error);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .notice-card h3 svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+        .notice-card p {
+            font-size: 14px;
+            color: var(--warm-gray);
+            line-height: 1.5;
+            margin: 0;
+        }
         .product-title {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
@@ -1197,7 +1224,7 @@
 
     <section class="section" id="benefits">
         <h2 class="section-title">Why Patients Choose Retatrutide</h2>
-        <p class="section-subtitle">{{BENEFITS_SUBTITLE}}</p>
+        <p class="section-subtitle">The triple-receptor agonist delivering unprecedented results in clinical trials.</p>
         <div class="benefits-grid">
             <div class="benefit-card">
                 <div class="icon">
@@ -1391,7 +1418,7 @@
                 <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <p class="review-text">"{{TESTIMONIAL2}}"</p>
+            <p class="review-text">"Lost 31 lbs in 4 months. My doctor was impressed with my progress and the medication quality is top-notch. Highly recommend ArgoMD."</p>
             <div class="review-date">February 2026</div>
         </div>
         <div class="review-card">
@@ -1466,6 +1493,7 @@
         <a href="https://www.legitscript.com/websites/?checker_keywords=argomd.com" target="_blank" title="Verify LegitScript Approval for www.argomd.com">
             <img src="https://static.legitscript.com/seals/50424987.png" alt="Verify Approval for www.argomd.com" width="73" height="79" />
         </a>
+
     </footer>
 
     <script>
