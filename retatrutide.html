@@ -70,29 +70,6 @@
             letter-spacing: -0.02em;
         }
         .header-logo span { color: var(--brand-gold); }
-        .header-cart {
-            width: 40px; height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--cream);
-            position: relative;
-        }
-        .header-cart svg { width: 20px; height: 20px; }
-        .cart-badge {
-            position: absolute;
-            top: -2px; right: -2px;
-            width: 18px; height: 18px;
-            background: var(--brand-gold);
-            color: white;
-            font-size: 10px;
-            font-weight: 700;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
         .product-images {
             position: relative;
@@ -759,267 +736,19 @@
             .atc-bar { padding-left: 24px; padding-right: 24px; }
         }
 
-        /* ========== CART DRAWER ========== */
-        .cart-drawer-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.45);
-            z-index: 9998;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        body.cart-drawer-open .cart-drawer-overlay {
-            opacity: 1;
-            visibility: visible;
-        }
-        .cart-drawer {
-            position: fixed;
-            top: 0; right: 0; bottom: 0;
-            width: 420px;
-            max-width: 90vw;
-            background: #fff;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            transform: translateX(100%);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -4px 0 24px rgba(0,0,0,0.12);
-        }
-        body.cart-drawer-open .cart-drawer {
-            transform: translateX(0);
-        }
-        .cart-drawer__header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        .cart-drawer__title {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--charcoal);
-        }
-        .cart-drawer__close {
-            width: 36px; height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--cream);
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            color: var(--warm-gray);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .cart-drawer__close:hover {
-            background: var(--light-gray);
-            color: var(--charcoal);
-        }
-        .cart-drawer__items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px 24px;
-        }
-        .cart-drawer__empty {
-            text-align: center;
-            color: var(--warm-gray);
-            padding: 40px 0;
-            font-size: 14px;
-        }
-        .cart-drawer__item {
-            display: flex;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        .cart-drawer__item:last-child { border-bottom: none; }
-        .cart-drawer__item-image {
-            width: 72px; height: 72px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            flex-shrink: 0;
-            background: var(--cream);
-        }
-        .cart-drawer__item-image img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-        }
-        .cart-drawer__item-details { flex: 1; }
-        .cart-drawer__item-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 4px;
-        }
-        .cart-drawer__item-variant {
-            font-size: 12px;
-            color: var(--warm-gray);
-            margin-bottom: 4px;
-        }
-        .cart-drawer__item-qty {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 4px;
-        }
-        .cart-drawer__item-qty button {
-            width: 28px; height: 28px;
-            border: 1px solid var(--light-gray);
-            background: white;
-            border-radius: var(--radius-sm);
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .cart-drawer__item-qty span {
-            font-size: 13px;
-            font-weight: 600;
-            min-width: 20px;
-            text-align: center;
-        }
-        .cart-drawer__item-price {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--charcoal);
-        }
-        .cart-drawer__item-remove {
-            font-size: 12px;
-            color: var(--warm-gray);
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-decoration: underline;
-            padding: 0;
-            margin-top: 4px;
-        }
-        .cart-drawer__item-remove:hover { color: var(--error); }
-
-        /* Complementary products */
-        .cart-drawer__complementary {
-            padding: 20px 24px;
-            border-top: 1px solid var(--light-gray);
-            background: var(--cream);
-        }
-        .cart-drawer__complementary-title {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--charcoal);
-            margin-bottom: 12px;
-        }
-        .cart-drawer__complementary-list {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding-bottom: 4px;
-        }
-        .cart-drawer__complementary-item {
-            min-width: 140px;
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 12px;
-            border: 1px solid var(--light-gray);
-            text-align: center;
-        }
-        .cart-drawer__complementary-item img {
-            width: 64px; height: 64px;
-            object-fit: cover;
-            border-radius: var(--radius-sm);
-            margin-bottom: 8px;
-        }
-        .cart-drawer__complementary-item h4 {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 2px;
-        }
-        .cart-drawer__complementary-item p {
-            font-size: 11px;
-            color: var(--warm-gray);
-            margin-bottom: 8px;
-        }
-        .cart-drawer__complementary-item button {
-            width: 100%;
-            padding: 8px;
-            background: var(--brand-green);
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .cart-drawer__complementary-item button:hover {
-            opacity: 0.9;
-        }
-
-        .cart-drawer__footer {
-            padding: 20px 24px;
-            border-top: 1px solid var(--light-gray);
-        }
-        .cart-drawer__subtotal {
-            display: flex;
-            justify-content: space-between;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 16px;
-        }
-        .cart-drawer__checkout-btn {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            background: var(--brand-green);
-            color: white;
-            font-size: 15px;
-            font-weight: 700;
-            border-radius: var(--radius-sm);
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 10px;
-            transition: all 0.2s;
-        }
-        .cart-drawer__checkout-btn:hover {
-            opacity: 0.9;
-        }
-        .cart-drawer__continue {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            color: var(--warm-gray);
-            text-align: center;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .cart-drawer__continue:hover { color: var(--charcoal); }
     </style>
 </head>
 <body>
 
     <header class="header">
         <a href="/" class="header-logo">Argo<span>MD</span></a>
-        <div class="header-cart" id="headerCart" style="cursor:pointer;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 6h15l-1.5 9h-12L6 6z"/>
-                <circle cx="9" cy="20" r="1"/>
-                <circle cx="18" cy="20" r="1"/>
-                <path d="M6 6L5 3H2"/>
-            </svg>
-            <span class="cart-badge" id="cartBadge">0</span>
-        </div>
     </header>
+    <div class="hero-trust" style="display:flex;justify-content:center;gap:12px;padding:10px 16px;background:var(--cream);border-bottom:1px solid rgba(0,0,0,0.06);margin-top:56px;flex-wrap:wrap;">
+        <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Prescription Required</span>
+        <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>U.S. Pharmacy</span>
+        <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Licensed MDs</span>
+        <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>FSA/HSA</span>
+    </div>
 
     <div class="product-images" id="productCarousel">
         <div class="carousel-track" id="carouselTrack">
@@ -1115,10 +844,10 @@
     </div>
 
     <div class="atc-bar">
-        <button class="btn-atc" id="btnAtc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg>
-            Add to Cart — $299
-        </button>
+        <div class="price-display">
+            <span class="price-current">$299</span>
+        </div>
+        <button class="btn-atc" id="btnAtc">Start Free Assessment</button>
     </div>
 
     <section class="section" id="how-it-works">
@@ -1186,7 +915,7 @@
 
     <section class="section" id="clinical">
         <h2 class="section-title">Clinical Proof</h2>
-        <p class="section-subtitle">Phase 3 trial results published in The New England Journal of Medicine.</p>
+        <p class="section-subtitle">Phase 2 trial results published in The New England Journal of Medicine.</p>
         <div class="clinical-card">
             <h3>SURMOUNT-1 Trial Results</h3>
             <p>The largest and longest study of Retatrutide in adults with obesity, showing unprecedented efficacy.</p>
@@ -1420,7 +1149,6 @@
         <a href="https://www.legitscript.com/websites/?checker_keywords=argomd.com" target="_blank" title="Verify LegitScript Approval for www.argomd.com">
             <img src="https://static.legitscript.com/seals/50424987.png" alt="Verify Approval for www.argomd.com" width="73" height="79" />
         </a>
-
     </footer>
 
     <script>
@@ -1554,7 +1282,7 @@
                 priceCurrent.textContent = '$' + data.price;
                 priceOriginal.textContent = '$' + data.original;
                 pricePerDose.innerHTML = '<strong>$' + data.perDose + '</strong> per weekly dose';
-                btnAtc.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg> Add to Cart — $${data.price}`;
+                btnAtc.textContent = "Start Free Assessment";
             });
         });
 
@@ -1578,200 +1306,6 @@
         });
 
         // ========== CART DRAWER ==========
-        const COMPLEMENTARY_PRODUCTS = [
-            {
-                id: 'sermorelin',
-                title: 'Sermorelin',
-                subtitle: 'Muscle sparing & recovery',
-                price: 199,
-                image: 'assets/complementary/gh-secretagogues.jpg'
-            },
-            {
-                id: 'bpc-157',
-                title: 'BPC-157',
-                subtitle: 'Tissue repair & gut healing',
-                price: 149,
-                image: 'assets/complementary/bpc-157.jpg'
-            },
-            {
-                id: 'nad-injection',
-                title: 'NAD+ Injection',
-                subtitle: 'Cellular energy & cognitive function',
-                price: 249,
-                image: 'assets/complementary/nad-injection.jpg'
-            },
-            {
-                id: 'mic-injection',
-                title: 'B12/MIC Injection',
-                subtitle: 'Metabolism support & energy',
-                price: 129,
-                image: 'assets/complementary/mic-injection.jpg'
-            }
-        ];
-
-        let cart = JSON.parse(localStorage.getItem('argomd_cart') || '[]');
-
-        function saveCart() {
-            localStorage.setItem('argomd_cart', JSON.stringify(cart));
-            updateCartBadge();
-        }
-
-        function updateCartBadge() {
-            const count = cart.reduce((sum, item) => sum + item.qty, 0);
-            const badge = document.getElementById('cartBadge');
-            if (badge) badge.textContent = count;
-        }
-
-        function addToCart(product) {
-            const existing = cart.find(item => item.id === product.id);
-            if (existing) {
-                existing.qty += product.qty || 1;
-            } else {
-                cart.push({ ...product, qty: product.qty || 1 });
-            }
-            saveCart();
-            openCartDrawer();
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            saveCart();
-            renderCartDrawer();
-        }
-
-        function updateQty(productId, delta) {
-            const item = cart.find(item => item.id === productId);
-            if (!item) return;
-            item.qty += delta;
-            if (item.qty <= 0) {
-                removeFromCart(productId);
-            } else {
-                saveCart();
-                renderCartDrawer();
-            }
-        }
-
-        function getCartDrawer() {
-            let wrapper = document.getElementById('cart-drawer-wrapper');
-            if (wrapper) return wrapper;
-            return injectCartDrawer();
-        }
-
-        function injectCartDrawer() {
-            const wrapper = document.createElement('div');
-            wrapper.id = 'cart-drawer-wrapper';
-            wrapper.innerHTML =
-                '<div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>' +
-                '<aside class="cart-drawer" role="dialog" aria-label="Shopping cart">' +
-                    '<header class="cart-drawer__header">' +
-                        '<h2 class="cart-drawer__title">Your Cart</h2>' +
-                        '<button class="cart-drawer__close" id="cartDrawerClose" aria-label="Close cart">&times;</button>' +
-                    '</header>' +
-                    '<div class="cart-drawer__items" id="cartDrawerItems"></div>' +
-                    '<div class="cart-drawer__complementary" id="cartDrawerComplementary"></div>' +
-                    '<footer class="cart-drawer__footer">' +
-                        '<div class="cart-drawer__subtotal">' +
-                            '<span>Subtotal</span>' +
-                            '<span id="cartDrawerSubtotal">$0.00</span>' +
-                        '</div>' +
-                        '<button class="cart-drawer__checkout-btn" id="cartDrawerCheckout">Checkout</button>' +
-                        '<button class="cart-drawer__continue" id="cartDrawerContinue" type="button">Continue Shopping</button>' +
-                    '</footer>' +
-                '</aside>';
-            document.body.appendChild(wrapper);
-            document.getElementById('cartDrawerOverlay').addEventListener('click', closeCartDrawer);
-            document.getElementById('cartDrawerClose').addEventListener('click', closeCartDrawer);
-            document.getElementById('cartDrawerContinue').addEventListener('click', closeCartDrawer);
-            return wrapper;
-        }
-
-        function openCartDrawer() {
-            getCartDrawer();
-            document.body.classList.add('cart-drawer-open');
-            renderCartDrawer();
-        }
-
-        function closeCartDrawer() {
-            document.body.classList.remove('cart-drawer-open');
-        }
-
-        function renderCartDrawer() {
-            const itemsContainer = document.getElementById('cartDrawerItems');
-            const subtotalEl = document.getElementById('cartDrawerSubtotal');
-            const compContainer = document.getElementById('cartDrawerComplementary');
-            if (!itemsContainer) return;
-
-            if (cart.length === 0) {
-                itemsContainer.innerHTML = '<p class="cart-drawer__empty">Your cart is empty.</p>';
-                if (subtotalEl) subtotalEl.textContent = '$0.00';
-                if (compContainer) compContainer.style.display = 'none';
-                return;
-            }
-
-            let html = '';
-            let subtotal = 0;
-            cart.forEach(item => {
-                subtotal += item.price * item.qty;
-                html +=
-                    '<div class="cart-drawer__item">' +
-                        '<div class="cart-drawer__item-image">' +
-                            '<img src="' + (item.image || 'assets/retatrutide-hero.jpg') + '" alt="' + item.title + '" width="72" height="72">' +
-                        '</div>' +
-                        '<div class="cart-drawer__item-details">' +
-                            '<p class="cart-drawer__item-title">' + item.title + '</p>' +
-                            '<div class="cart-drawer__item-qty">' +
-                                '<span>Qty: ' + item.qty + '</span>' +
-                            '</div>' +
-                            '<p class="cart-drawer__item-price">$' + (item.price * item.qty) + '</p>' +
-                            '<button class="cart-drawer__item-remove" onclick="removeFromCart(\'' + item.id + '\')">Remove</button>' +
-                        '</div>' +
-                    '</div>';
-            });
-            itemsContainer.innerHTML = html;
-            if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
-
-            // Render complementary products
-            if (compContainer) {
-                compContainer.style.display = 'block';
-                let compHtml = '<p class="cart-drawer__complementary-title">Complete Your Protocol</p>' +
-                    '<div class="cart-drawer__complementary-list">';
-                COMPLEMENTARY_PRODUCTS.forEach(product => {
-                    const inCart = cart.find(item => item.id === product.id);
-                    if (!inCart) {
-                        compHtml +=
-                            '<div class="cart-drawer__complementary-item">' +
-                                '<img src="' + product.image + '" alt="' + product.title + '" onerror="this.style.display=\'none\'">' +
-                                '<h4>' + product.title + '</h4>' +
-                                '<p>' + product.subtitle + '</p>' +
-                                '<button onclick="addToCart({id: \'' + product.id + '\', title: \'' + product.title + '\', price: ' + product.price + ', qty: 1})">Add $' + product.price + '</button>' +
-                            '</div>';
-                    }
-                });
-                compHtml += '</div>';
-                compContainer.innerHTML = compHtml;
-            }
-        }
-
-        document.getElementById('headerCart').addEventListener('click', openCartDrawer);
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeCartDrawer();
-        });
-
-        // Wire up the sticky ATC button
-        document.getElementById('btnAtc').addEventListener('click', () => {
-            const plan = document.querySelector('.plan-option.active');
-            const planType = plan ? plan.dataset.plan : 'monthly';
-            const prices = { monthly: 299, quarterly: 239, annual: 199 };
-            addToCart({
-                id: 'retatrutide-' + planType,
-                title: 'Retatrutide (' + planType.charAt(0).toUpperCase() + planType.slice(1) + ')',
-                price: prices[planType],
-                qty: 1,
-                image: 'assets/retatrutide-hero.jpg'
-            });
-        });
-
-        updateCartBadge();
     </script>
 </body>
 </html>

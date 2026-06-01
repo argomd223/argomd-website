@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArgoMD — Rapamycin, Tirzepatide &amp; Peptides, Prescribed by a Real U.S. Doctor</title>
+    <meta name="description" content="Get the longevity stack you've been researching — rapamycin, GLP-1s, BPC-157, NAD+, testosterone — prescribed by a licensed U.S. clinician after a real lab review, filled by a U.S. pharmacy. 48-hour review. 50-state coverage.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+
+<script>
+// Device-based routing for Retatrutide links
+// Mobile -> selectable medication page
+// Desktop -> Tirzepatide-only page (Retatrutide not yet approved)
+(function() {
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    }
+    window.getRetatrutideUrl = function() {
+        return isMobile() ? 'products/retatrutide.html' : 'products/retatrutide-desktop.html';
+    };
+    // Update retatrutide links on DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href="products/retatrutide.html"]').forEach(function(link) {
+            link.href = window.getRetatrutideUrl();
+        });
+    });
+})();
+</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="assets/logo.png" alt="ArgoMD Logo" class="logo-mark">
+                <span class="logo-text">Argo<span>MD</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#science">Science</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="protocol-finder.html" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="desktop-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="desktop-menu-overlay"></div>
+            <div class="desktop-menu-panel">
+                <button class="desktop-menu-close" aria-label="Close menu">&times;</button>
+                <div class="desktop-menu-section">
+                    <h4>Protocols</h4>
+                    <a href="#protocols">All Protocols</a>
+                    <a href="#protocol-metabolic">Metabolic Reset</a>
+                    <a href="#protocol-performance">Performance & Recovery</a>
+                    <a href="#protocol-hormone">Hormone Optimization</a>
+                    <a href="#protocol-cellular">Cellular Health</a>
+                    <a href="#protocol-peptide">Peptide Therapy</a>
+                    <a href="#protocol-sexual">Sexual Health</a>
+                    <a href="#protocol-cardiovascular">Cardiovascular</a>
+                    <a href="#protocol-hair">Hair & Skin</a>
+                </div>
+                <div class="desktop-menu-section">
+                    <h4>Medications</h4>
+                    <a href="#meds-weight-loss">Weight Loss (GLP-1s)</a>
+                    <a href="#meds-longevity">Longevity</a>
+                    <a href="#meds-peptides">Peptides</a>
+                    <a href="#meds-mens-health">Men's Health</a>
+                    <a href="#meds-womens-health">Women's Health</a>
+                    <a href="#meds-sexual-health">Sexual Health</a>
+                    <a href="#meds-cardiovascular">Cardiovascular</a>
+                    <a href="#meds-hair-skin">Hair & Skin</a>
+                    <a href="#meds-skincare">Skincare</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg-pattern"></div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">Licensed U.S. Providers · U.S. Pharmacy Fulfillment</div>
+                    <h1 class="hero-title">The longevity stack you've been researching — without the gray-market vials.</h1>
+                    <p class="hero-subtitle">Rapamycin. Tirzepatide. BPC-157. NAD+. Testosterone. Prescribed by a licensed U.S. doctor after a real lab review. Filled by a U.S. pharmacy. Mailed in a plain box with no drug name on the label.</p>
+                    <div class="hero-bullets">
+                        <div class="hero-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Licensed provider review</div>
+                        <div class="hero-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Personalized protocols based on goals, history, and labs</div>
+                        <div class="hero-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Prescription options when medically appropriate</div>
+                        <div class="hero-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Ongoing follow-up and optimization</div>
+                    </div>
+                    <div class="hero-ctas">
+                        <a href="protocol-finder.html" class="btn btn-primary">Start Free Eligibility Check</a>
+                        <a href="#protocols" class="btn btn-secondary">View Protocols</a>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="hero-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Board-Certified Physicians
+                        </div>
+                        <div class="hero-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            HIPAA Compliant
+                        </div>
+                        <div class="hero-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            LegitScript Certified
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="assets/hero-couple.jpg" alt="Healthy active couple enjoying outdoor activity" class="hero-image">
+                        <div class="hero-floating-card card-1">
+                            <h4>50+ States</h4>
+                            <p>Telehealth coverage</p>
+                        </div>
+                        <div class="hero-floating-card card-2">
+                            <h4>Lab-Based</h4>
+                            <p>Personalized protocols</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="trust-bar">
+            <div class="trust-bar-container">
+                <div class="trust-bar-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <span>Licensed Providers</span>
+                </div>
+                <div class="trust-bar-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span>U.S. Pharmacies</span>
+                </div>
+                <div class="trust-bar-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    <span>Lab-Based Plans</span>
+                </div>
+                <div class="trust-bar-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <span>Provider Support</span>
+                </div>
+                <div class="trust-bar-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>No Research Chemicals</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz CTA Section -->
+        <section class="section quiz-section" id="assessment">
+            <div class="section-container">
+                <div class="quiz-box animate-on-scroll">
+                    <span class="section-label">Get Started</span>
+                    <h2 class="section-title">Take the 2-Minute Longevity Assessment</h2>
+                    <p class="section-subtitle">Answer a few questions about your goals, health history, and location. We'll let you know if physician-guided care is a fit — no commitment required.</p>
+                    <div class="quiz-steps">
+                        <div class="quiz-step"><span>1</span> Primary goal</div>
+                        <div class="quiz-step"><span>2</span> Health profile</div>
+                        <div class="quiz-step"><span>3</span> State &amp; eligibility</div>
+                        <div class="quiz-step"><span>4</span> Your results</div>
+                    </div>
+                    <a href="protocol-finder.html" class="btn btn-primary" style="margin-top: 32px;">Start Free Eligibility Check</a>
+                    <p class="quiz-disclaimer">Takes 2 minutes. No credit card required.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocol Cards Section -->
+        <section class="section protocols-section" id="protocols">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Protocols</span>
+                    <h2 class="section-title">Physician-Guided Programs</h2>
+                    <p class="section-subtitle">Every protocol starts with a licensed provider review. Your plan is built around your goals, history, and labs — not a one-size-fits-all prescription.</p>
+                </div>
+                <div class="protocols-grid">
+                    <div class="protocol-card animate-on-scroll">
+                        <div class="protocol-icon">🎯</div>
+                        <h3>Metabolic Reset Protocol</h3>
+                        <p>For appetite control, weight loss, insulin sensitivity, and cardiometabolic risk reduction.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">Semaglutide</span>
+                            <span class="protocol-med">Tirzepatide</span>
+                            <span class="protocol-med">Retatrutide</span>
+                            <span class="protocol-med">Metformin</span>
+                            <span class="protocol-med">Acarbose</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Provider review</span>
+                            <span class="protocol-include">Medication when appropriate</span>
+                            <span class="protocol-include">Dose guidance</span>
+                            <span class="protocol-include">Side-effect support</span>
+                            <span class="protocol-include">Lab tracking</span>
+                        </div>
+                        <a href="quizzes/metabolic.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                    <div class="protocol-card animate-on-scroll animate-delay-2">
+                        <div class="protocol-icon">⚡</div>
+                        <h3>Performance &amp; Recovery Protocol</h3>
+                        <p>For energy, sleep, inflammation, recovery, and muscle preservation.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">Sermorelin</span>
+                            <span class="protocol-med">BPC-157</span>
+                            <span class="protocol-med">NAD+</span>
+                            <span class="protocol-med">Glutathione</span>
+                            <span class="protocol-med">Low Dose Naltrexone</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Provider review</span>
+                            <span class="protocol-include">Personalized dosing</span>
+                            <span class="protocol-include">Recovery tracking</span>
+                            <span class="protocol-include">Ongoing adjustments</span>
+                        </div>
+                        <a href="quizzes/performance.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                    <div class="protocol-card animate-on-scroll animate-delay-3">
+                        <div class="protocol-icon">🔬</div>
+                        <h3>Hormone Optimization Protocol</h3>
+                        <p>For men and women with lab-confirmed deficiencies or symptoms.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">Testosterone</span>
+                            <span class="protocol-med">Estradiol</span>
+                            <span class="protocol-med">Progesterone</span>
+                            <span class="protocol-med">DHEA</span>
+                            <span class="protocol-med">Thyroid (T3/T4)</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Comprehensive labs</span>
+                            <span class="protocol-include">Provider review</span>
+                            <span class="protocol-include">Bioidentical options</span>
+                            <span class="protocol-include">Follow-up monitoring</span>
+                        </div>
+                        <a href="quizzes/hormone.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                    <div class="protocol-card animate-on-scroll animate-delay-4">
+                        <div class="protocol-icon">🧬</div>
+                        <h3>Cellular Health Protocol</h3>
+                        <p>For NAD+, mitochondrial support, and aging-related biomarker optimization.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">NAD+ injection</span>
+                            <span class="protocol-med">NAD+ patch</span>
+                            <span class="protocol-med">Metformin</span>
+                            <span class="protocol-med">Sermorelin</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Biomarker assessment</span>
+                            <span class="protocol-include">Targeted support</span>
+                            <span class="protocol-include">Cellular tracking</span>
+                            <span class="protocol-include">Protocol refinement</span>
+                        </div>
+                        <a href="quizzes/cellular.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                    <div class="protocol-card animate-on-scroll animate-delay-1">
+                        <div class="protocol-icon">🧪</div>
+                        <h3>Peptide Therapy Protocol</h3>
+                        <p>For healing, recovery, tissue repair, and targeted optimization.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">BPC-157</span>
+                            <span class="protocol-med">TB-500</span>
+                            <span class="protocol-med">CJC-1295 / Ipamorelin</span>
+                            <span class="protocol-med">GHK-Cu</span>
+                            <span class="protocol-med">PT-141</span>
+                            <span class="protocol-med">Glow (GHK-Cu / BPC-157 / TB-500)</span>
+                            <span class="protocol-med">Wolverine (BPC-157 / TB-500)</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Provider review</span>
+                            <span class="protocol-include">Personalized dosing</span>
+                            <span class="protocol-include">Healing tracking</span>
+                            <span class="protocol-include">Ongoing adjustments</span>
+                        </div>
+                        <a href="quizzes/performance.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                    <div class="protocol-card animate-on-scroll animate-delay-2">
+                        <div class="protocol-icon">❤️</div>
+                        <h3>Sexual Health Protocol</h3>
+                        <p>For libido, erectile function, arousal, and sexual wellness optimization.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">Tadalafil</span>
+                            <span class="protocol-med">Sildenafil</span>
+                            <span class="protocol-med">PT-141</span>
+                            <span class="protocol-med">Enclomiphene</span>
+                            <span class="protocol-med">Testosterone</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Provider review</span>
+                            <span class="protocol-include">Personalized dosing</span>
+                            <span class="protocol-include">Discreet fulfillment</span>
+                            <span class="protocol-include">Ongoing adjustments</span>
+                        </div>
+                        <a href="quizzes/sexual.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                    <div class="protocol-card animate-on-scroll animate-delay-3">
+                        <div class="protocol-icon">🫀</div>
+                        <h3>Cardiovascular Protocol</h3>
+                        <p>For blood pressure, lipid optimization, and cardiometabolic risk reduction.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">Tadalafil</span>
+                            <span class="protocol-med">Semaglutide</span>
+                            <span class="protocol-med">Tirzepatide</span>
+                            <span class="protocol-med">Metformin</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Provider review</span>
+                            <span class="protocol-include">Lipid panel tracking</span>
+                            <span class="protocol-include">BP monitoring</span>
+                            <span class="protocol-include">Ongoing adjustments</span>
+                        </div>
+                        <a href="quizzes/sexual.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                    <div class="protocol-card animate-on-scroll animate-delay-4">
+                        <div class="protocol-icon">💇</div>
+                        <h3>Hair &amp; Skin Protocol</h3>
+                        <p>For hair loss prevention, regrowth, and skin rejuvenation.</p>
+                        <div class="protocol-meds">
+                            <p class="protocol-meds-label">May include when prescribed:</p>
+                            <span class="protocol-med">Finasteride</span>
+                            <span class="protocol-med">Minoxidil</span>
+                            <span class="protocol-med">GHK-Cu</span>
+                            <span class="protocol-med">Glow (GHK-Cu / BPC-157 / TB-500)</span>
+                        </div>
+                        <div class="protocol-includes">
+                            <span class="protocol-include">Provider review</span>
+                            <span class="protocol-include">Progress photos</span>
+                            <span class="protocol-include">Topical + oral options</span>
+                            <span class="protocol-include">Ongoing adjustments</span>
+                        </div>
+                        <a href="quizzes/hair-skin.html" class="btn btn-primary">Check Eligibility</a>
+                    </div>
+                </div>
+                <div class="protocol-note">
+                    <p><strong>Advanced Longevity Physician Review</strong> — For rapamycin, metformin-style off-label review, and advanced protocols where clinically appropriate. <a href="protocol-finder.html">Request Physician Review</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section" id="how-it-works">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">How It Works</span>
+                    <h2 class="section-title">Your Protocol in 5 Steps</h2>
+                    <p class="section-subtitle">From assessment to optimization — physician-guided, data-driven, and delivered through legitimate clinical channels.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card animate-on-scroll">
+                        <div class="step-number">1</div>
+                        <h3>Free Assessment</h3>
+                        <p>Complete a 2-minute online health assessment. Share your goals, history, and current state.</p>
+                    </div>
+                    <div class="step-card animate-on-scroll animate-delay-2">
+                        <div class="step-number">2</div>
+                        <h3>Lab Review</h3>
+                        <p>Optional advanced lab panels where clinically appropriate. We review existing labs or order new ones.</p>
+                    </div>
+                    <div class="step-card animate-on-scroll animate-delay-3">
+                        <div class="step-number">3</div>
+                        <h3>Provider Plan</h3>
+                        <p>A licensed provider reviews your data and designs a personalized protocol — if medically appropriate.</p>
+                    </div>
+                    <div class="step-card animate-on-scroll animate-delay-4">
+                        <div class="step-number">4</div>
+                        <h3>Pharmacy Fulfillment</h3>
+                        <p>Prescriptions filled by licensed U.S. pharmacies. Discreet packaging. Delivered to your door.</p>
+                    </div>
+                    <div class="step-card animate-on-scroll animate-delay-4">
+                        <div class="step-number">5</div>
+                        <h3>Follow-Up &amp; Optimize</h3>
+                        <p>90-day re-assessment. Track biomarkers. Adjust protocol. Ongoing provider messaging and support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcomes Section -->
+        <section class="section outcomes-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Outcomes</span>
+                    <h2 class="section-title">What Patients Track</h2>
+                    <p class="section-subtitle">Measurable improvements in the areas that matter most — not promises of lifespan extension.</p>
+                </div>
+                <div class="outcomes-grid">
+                    <div class="outcome-card animate-on-scroll">
+                        <div class="outcome-icon">⚡</div>
+                        <h3>Energy &amp; Vitality</h3>
+                        <p>Reduced fatigue, improved daily energy, better sleep quality, and enhanced recovery.</p>
+                    </div>
+                    <div class="outcome-card animate-on-scroll animate-delay-2">
+                        <div class="outcome-icon">📊</div>
+                        <h3>Body Composition</h3>
+                        <p>Sustainable fat loss, muscle preservation, and improved metabolic markers.</p>
+                    </div>
+                    <div class="outcome-card animate-on-scroll animate-delay-3">
+                        <div class="outcome-icon">🔬</div>
+                        <h3>Biomarkers</h3>
+                        <p>Track metabolic, hormonal, inflammatory, and cardiovascular markers over time.</p>
+                    </div>
+                    <div class="outcome-card animate-on-scroll animate-delay-4">
+                        <div class="outcome-icon">🫀</div>
+                        <h3>Metabolic Health</h3>
+                        <p>Improved insulin sensitivity, glucose control, and cardiometabolic risk factors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science Section -->
+        <section class="section science-section" id="science">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">The Science</span>
+                    <h2 class="section-title">Built on Clinical Research</h2>
+                    <p class="section-subtitle">Our protocols are informed by the same research driving the metabolic and longevity fields forward. We present the evidence carefully — without overpromising.</p>
+                </div>
+                <div class="science-grid">
+                    <div class="science-card animate-on-scroll">
+                        <h3>TAME Trial</h3>
+                        <p>Metformin is being studied for its effects on healthspan and age-related disease risk. The first FDA-recognized trial targeting aging-related biomarkers.</p>
+                    </div>
+                    <div class="science-card animate-on-scroll animate-delay-2">
+                        <h3>SELECT Trial</h3>
+                        <p>Semaglutide reduced cardiovascular events by 20% in non-diabetic patients. GLP-1 medications show promise beyond weight management.</p>
+                    </div>
+                    <div class="science-card animate-on-scroll animate-delay-3">
+                        <h3>ITP Studies</h3>
+                        <p>Rapamycin has extended lifespan in mammalian studies. Research continues into its effects on cellular aging pathways.</p>
+                    </div>
+                </div>
+                <div class="science-disclaimer">
+                    <p><strong>Important:</strong> Individual results vary. These medications and protocols are being studied for their effects on metabolic health, inflammation, cardiovascular risk, and age-related biomarkers. They are not guaranteed to extend lifespan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why ArgoMD Is Different -->
+        <section class="section different-section" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Why ArgoMD</span>
+                    <h2 class="section-title">Why ArgoMD Is Different</h2>
+                    <p class="section-subtitle">The serious longevity protocols people are trying to DIY — now brought into a legitimate physician-guided, lab-tracked, U.S.-pharmacy model.</p>
+                </div>
+                <div class="different-grid">
+                    <div class="different-card animate-on-scroll">
+                        <div class="different-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3>Licensed U.S. Providers</h3>
+                        <p>Your care is reviewed by licensed clinicians, not an overseas peptide vendor.</p>
+                    </div>
+                    <div class="different-card animate-on-scroll animate-delay-2">
+                        <div class="different-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <h3>U.S. Pharmacy Fulfillment</h3>
+                        <p>Prescriptions are filled by properly licensed U.S. pharmacies when medically appropriate.</p>
+                    </div>
+                    <div class="different-card animate-on-scroll animate-delay-3">
+                        <div class="different-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        </div>
+                        <h3>Lab-Based Protocols</h3>
+                        <p>Your plan is built around biomarkers, not one-size-fits-all dosing.</p>
+                    </div>
+                    <div class="different-card animate-on-scroll animate-delay-4">
+                        <div class="different-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        </div>
+                        <h3>Ongoing Support</h3>
+                        <p>Provider messaging, side-effect guidance, and protocol adjustments as needed.</p>
+                    </div>
+                    <div class="different-card animate-on-scroll animate-delay-1">
+                        <div class="different-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>No Research Chemicals</h3>
+                        <p>No gray-market peptides. No self-experimentation. No mystery vials.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="section comparison-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Comparison</span>
+                    <h2 class="section-title">How ArgoMD Compares</h2>
+                    <p class="section-subtitle">See how physician-guided care stacks up against other options.</p>
+                </div>
+                <div class="comparison-table-wrapper animate-on-scroll">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="highlight">ArgoMD</th>
+                                <th>Medspa</th>
+                                <th>Primary Care</th>
+                                <th>Research Peptide Sites</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Licensed provider review</td>
+                                <td class="highlight">✓ Yes</td>
+                                <td>Sometimes</td>
+                                <td>✓ Yes</td>
+                                <td>✗ No</td>
+                            </tr>
+                            <tr>
+                                <td>Longevity-focused protocols</td>
+                                <td class="highlight">✓ Yes</td>
+                                <td>Limited</td>
+                                <td>Rare</td>
+                                <td>✗ No</td>
+                            </tr>
+                            <tr>
+                                <td>Labs / biomarkers</td>
+                                <td class="highlight">✓ Yes</td>
+                                <td>Sometimes</td>
+                                <td>Basic</td>
+                                <td>✗ No</td>
+                            </tr>
+                            <tr>
+                                <td>Prescription fulfillment</td>
+                                <td class="highlight">✓ Yes</td>
+                                <td>Sometimes</td>
+                                <td>✓ Yes</td>
+                                <td>✗ No</td>
+                            </tr>
+                            <tr>
+                                <td>Gray-market compounds</td>
+                                <td class="highlight">✗ No</td>
+                                <td>Varies</td>
+                                <td>✗ No</td>
+                                <td>Often</td>
+                            </tr>
+                            <tr>
+                                <td>Ongoing optimization</td>
+                                <td class="highlight">✓ Yes</td>
+                                <td>Varies</td>
+                                <td>Limited</td>
+                                <td>✗ No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who This Is For / Not For -->
+        <section class="section fit-section">
+            <div class="section-container">
+                <div class="fit-grid">
+                    <div class="fit-card fit-good animate-on-scroll">
+                        <h3>✓ Good Fit</h3>
+                        <p class="fit-subtitle">ArgoMD may be a fit if you:</p>
+                        <ul>
+                            <li>Want physician-guided weight loss or metabolic optimization</li>
+                            <li>Want deeper lab review than a standard annual physical</li>
+                            <li>Are interested in longevity-focused medicine but want medical oversight</li>
+                            <li>Prefer prescriptions and protocols managed through legitimate clinical channels</li>
+                        </ul>
+                    </div>
+                    <div class="fit-card fit-bad animate-on-scroll animate-delay-2">
+                        <h3>✗ Not a Fit</h3>
+                        <p class="fit-subtitle">ArgoMD may not be a fit if you:</p>
+                        <ul>
+                            <li>Are looking for research chemicals or non-prescribed peptides</li>
+                            <li>Want guaranteed access to a specific medication</li>
+                            <li>Are pregnant, breastfeeding, or have certain contraindications</li>
+                            <li>Are unwilling to complete intake/labs when required</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section pricing-section" id="pricing">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Pricing</span>
+                    <h2 class="section-title">Simple, Transparent Pricing</h2>
+                    <p class="section-subtitle">No hidden fees. No long-term commitment. You only pay for the care you receive.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card animate-on-scroll">
+                        <div class="pricing-header">
+                            <h3>Free Eligibility Assessment</h3>
+                            <div class="pricing-price">$0</div>
+                        </div>
+                        <p>2-minute online assessment to see if physician-guided care is a fit.</p>
+                        <a href="protocol-finder.html" class="btn btn-secondary">Get Started</a>
+                    </div>
+                    <div class="pricing-card pricing-featured animate-on-scroll animate-delay-2">
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>ArgoMD Membership</h3>
+                            <div class="pricing-price">$99–$149<span>/month</span></div>
+                        </div>
+                        <p>Includes provider access, protocol management, refills, and optimization support.</p>
+                        <ul class="pricing-features">
+                            <li>✓ Licensed provider review</li>
+                            <li>✓ Personalized protocol</li>
+                            <li>✓ Secure messaging</li>
+                            <li>✓ Protocol adjustments</li>
+                            <li>✓ Refill management</li>
+                        </ul>
+                        <p class="pricing-note">Medication and labs billed separately.</p>
+                        <a href="protocol-finder.html" class="btn btn-primary">Start Assessment</a>
+                    </div>
+                    <div class="pricing-card animate-on-scroll animate-delay-3">
+                        <div class="pricing-header">
+                            <h3>Provider Visit</h3>
+                            <div class="pricing-price">Free</div>
+                        </div>
+                        <p>One-time provider consultation for protocol review and prescription when appropriate.</p>
+                        <a href="protocol-finder.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="pricing-disclaimer">
+                    <p>Membership and consultation costs are shown below. Medication and lab costs depend on your personalized protocol — we'll provide a full breakdown before you commit.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testimonials-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Results</span>
+                    <h2 class="section-title">What Our Patients Say</h2>
+                    <p class="section-subtitle">Real outcomes from real patients. Focused on energy, vitality, and metabolic health.</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"I came in for weight loss, but what impressed me was the depth of the lab review and follow-up. It felt like a real medical program, not a prescription mill."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MR</div>
+                            <div class="testimonial-author-info">
+                                <h4>Michael R.</h4>
+                                <span>Age 52, Portland OR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll animate-delay-2">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"Finally, a doctor who looks at my labs and says 'let's optimize' instead of 'you're fine.' The protocol is personalized, the care is real."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SK</div>
+                            <div class="testimonial-author-info">
+                                <h4>Sarah K.</h4>
+                                <span>Age 47, Austin TX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll animate-delay-3">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"The convenience is unmatched. Prescriptions delivered, biomarkers tracked, physician check-ins — all without leaving my house."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DJ</div>
+                            <div class="testimonial-author-info">
+                                <h4>David J.</h4>
+                                <span>Age 58, Miami FL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="section cta-section" id="contact">
+            <div class="section-container">
+                <div class="cta-box animate-on-scroll">
+                    <span class="section-label">Start Today</span>
+                    <h2 class="section-title">Ready to Optimize Your Health?</h2>
+                    <p class="section-subtitle">Free eligibility assessment. Physician-reviewed within 48 hours. Start your protocol within 7 days if approved.</p>
+                    <a href="protocol-finder.html" class="btn btn-primary" style="margin-top: 32px;">Take the 2-Minute Assessment</a>
+                </div>
+            </div>
+        </section>
+        <!-- Medications Section -->
+        <section class="section medications-section" id="medications">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Medications</span>
+                    <h2 class="section-title">Available Medications</h2>
+                    <p class="section-subtitle">Browse medications by category. All prescriptions require provider review and are filled by licensed U.S. pharmacies when clinically appropriate. Pricing is shown on individual medication pages.</p>
+                </div>
+                
+                <!-- Weight Loss -->
+                <div class="med-category" id="meds-weight-loss">
+                    <h3 class="med-category-title">💉 Weight Loss (GLP-1s)</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <div class="med-badge">Most Popular</div>
+                            <h4><a href="products/semaglutide.html">Semaglutide</a></h4>
+                            <p class="med-desc">GLP-1 receptor agonist. 15-20% average body weight loss. Cardiovascular protection.</p>
+                            <a href="products/semaglutide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">Maximum Results</div>
+                            <h4><a href="products/tirzepatide.html">Tirzepatide</a></h4>
+                            <p class="med-desc">Dual GLP-1/GIP receptor agonist. 20-22% average body weight loss. Superior glycemic control.</p>
+                            <a href="products/tirzepatide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Triple-G</div>
+                            <h4><a href="products/retatrutide.html">Retatrutide</a></h4>
+                            <p class="med-desc">Triple G (GLP-1/GIP/GCG) receptor agonist. Up to 24% body weight loss. Next-generation peptide.</p>
+                            <a href="products/retatrutide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/metformin.html">Metformin</a></h4>
+                            <p class="med-desc">Insulin sensitizer. TAME trial candidate. Reduces age-related disease risk.</p>
+                            <a href="products/metformin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/acarbose.html">Acarbose</a></h4>
+                            <p class="med-desc">Alpha-glucosidase inhibitor. Blood sugar control, longevity signals in ITP studies.</p>
+                            <a href="products/acarbose.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Longevity -->
+                <div class="med-category" id="meds-longevity">
+                    <h3 class="med-category-title">🔬 Longevity</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <div class="med-badge">Research-Backed</div>
+                            <h4><a href="products/rapamycin.html">Rapamycin</a></h4>
+                            <p class="med-desc">mTOR inhibitor. Extends lifespan in mammalian studies. Cellular senescence reduction.</p>
+                            <a href="products/rapamycin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">Foundation</div>
+                            <h4><a href="products/metformin.html">Metformin</a></h4>
+                            <p class="med-desc">Insulin sensitizer. TAME trial candidate. Reduces age-related disease risk.</p>
+                            <a href="products/metformin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Premium</div>
+                            <h4><a href="products/nad-injectable.html">NAD+ Injectable</a></h4>
+                            <p class="med-desc">Cellular energy and DNA repair. Mitochondrial function optimization.</p>
+                            <a href="products/nad-injectable.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Cellular Repair</div>
+                            <h4><a href="products/nad-peptide.html">NAD+ Peptide</a></h4>
+                            <p class="med-desc">High-dose NAD+ for cellular repair, energy production, and longevity optimization.</p>
+                            <a href="products/nad-peptide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/nad-nasal-spray.html">NAD+ Nasal Spray</a></h4>
+                            <p class="med-desc">Convenient NAD+ delivery. Cellular energy, cognitive clarity, anti-aging.</p>
+                            <a href="products/nad-nasal-spray.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/nad-patch.html">NAD+ Patch</a></h4>
+                            <p class="med-desc">Transdermal NAD+ delivery. Sustained release for energy and cellular repair.</p>
+                            <a href="products/nad-patch.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/sermorelin.html">Sermorelin</a></h4>
+                            <p class="med-desc">Growth hormone-releasing peptide. Natural GH stimulation, recovery.</p>
+                            <a href="products/sermorelin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/low-dose-naltrexone.html">Low-Dose Naltrexone</a></h4>
+                            <p class="med-desc">Immune modulation, inflammation reduction. Autoimmune support.</p>
+                            <a href="products/low-dose-naltrexone.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/acarbose.html">Acarbose</a></h4>
+                            <p class="med-desc">Alpha-glucosidase inhibitor. Blood sugar control, longevity signals in ITP studies.</p>
+                            <a href="products/acarbose.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">Emerging</div>
+                            <h4><a href="products/methylene-blue.html">Methylene Blue</a></h4>
+                            <p class="med-desc">Mitochondrial-targeted antioxidant. Cognitive enhancement, cellular energy.</p>
+                            <a href="products/methylene-blue.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Antioxidant</div>
+                            <h4><a href="products/glutathione-injectable.html">Glutathione Injectable</a></h4>
+                            <p class="med-desc">Master antioxidant. Skin brightening, detoxification, immune support.</p>
+                            <a href="products/glutathione-injectable.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Metabolic+</div>
+                            <h4><a href="products/telmisartan.html">Telmisartan</a></h4>
+                            <p class="med-desc">ARB with PPAR-gamma activity. Blood pressure control, metabolic benefits, neuroprotection.</p>
+                            <a href="products/telmisartan.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <div class="med-badge">Heart & Kidney</div>
+                            <h4><a href="products/empagliflozin.html">Empagliflozin</a></h4>
+                            <p class="med-desc">SGLT2 inhibitor. Cardiovascular protection, kidney protection, glucose control.</p>
+                            <a href="products/empagliflozin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/niacin-extended-release.html">Niacin (Extended Release)</a></h4>
+                            <p class="med-desc">Vitamin B3 for HDL elevation, triglyceride reduction. Cardiovascular support.</p>
+                            <a href="products/niacin-extended-release.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/fenofibrate.html">Fenofibrate</a></h4>
+                            <p class="med-desc">Fibrate for triglyceride reduction. Combined with statins for complete lipid control.</p>
+                            <a href="products/fenofibrate.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Peptides -->
+                <div class="med-category" id="meds-peptides">
+                    <h3 class="med-category-title">🧬 Peptides</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <div class="med-badge">Healing</div>
+                            <h4><a href="products/bpc-157.html">BPC-157</a></h4>
+                            <p class="med-desc">Body Protection Compound. Accelerates healing, reduces inflammation, gut health support.</p>
+                            <a href="products/bpc-157.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">GH Boost</div>
+                            <h4><a href="products/cjc-1295-ipamorelin.html">CJC-1295 / Ipamorelin</a></h4>
+                            <p class="med-desc">Growth hormone secretagogue duo. Fat loss, muscle gain, recovery, anti-aging.</p>
+                            <a href="products/cjc-1295-ipamorelin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Regeneration</div>
+                            <h4><a href="products/tb-500.html">TB-500</a></h4>
+                            <p class="med-desc">Thymosin Beta-4. Promotes healing, reduces inflammation, tissue regeneration.</p>
+                            <a href="products/tb-500.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Skin &amp; Hair</div>
+                            <h4><a href="products/ghk-cu.html">GHK-Cu</a></h4>
+                            <p class="med-desc">Copper peptide. Skin rejuvenation, wound healing, collagen synthesis, anti-aging.</p>
+                            <a href="products/ghk-cu.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <div class="med-badge">Libido</div>
+                            <h4><a href="products/pt-141.html">PT-141</a></h4>
+                            <p class="med-desc">Bremelanotide peptide. Libido enhancement for men and women. Works on CNS, not vascular.</p>
+                            <a href="products/pt-141.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">Premium Blend</div>
+                            <h4><a href="products/glow-ghk-cu-bpc-157-tb-500.html">Glow (GHK-Cu / BPC-157 / TB-500)</a></h4>
+                            <p class="med-desc">Triple peptide blend for skin rejuvenation, healing, and recovery. Maximum anti-aging.</p>
+                            <a href="products/glow-ghk-cu-bpc-157-tb-500.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Recovery</div>
+                            <h4><a href="products/wolverine-bpc-157-tb-500.html">Wolverine (BPC-157 / TB-500)</a></h4>
+                            <p class="med-desc">Healing stack. BPC-157 + TB-500 for injury recovery, tissue repair, inflammation.</p>
+                            <a href="products/wolverine-bpc-157-tb-500.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Cellular Repair</div>
+                            <h4><a href="products/nad-peptide.html">NAD+ Peptide</a></h4>
+                            <p class="med-desc">High-dose NAD+ for cellular repair, energy production, and longevity optimization.</p>
+                            <a href="products/nad-peptide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Men's Health -->
+                <div class="med-category" id="meds-mens-health">
+                    <h3 class="med-category-title">💪 Men's Health</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <h4><a href="products/testosterone-cypionate.html">Testosterone Cypionate</a></h4>
+                            <p class="med-desc">Injectable testosterone replacement. Muscle preservation, energy, vitality.</p>
+                            <a href="products/testosterone-cypionate.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/enclomiphene.html">Enclomiphene</a></h4>
+                            <p class="med-desc">Selective estrogen receptor modulator. Natural testosterone stimulation.</p>
+                            <a href="products/enclomiphene.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/tadalafil.html">Tadalafil</a></h4>
+                            <p class="med-desc">PDE5 inhibitor. 36-hour duration. ED treatment + cardiovascular benefits.</p>
+                            <a href="products/tadalafil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/sildenafil.html">Sildenafil</a></h4>
+                            <p class="med-desc">PDE5 inhibitor. 4-6 hour duration. Fast-acting ED treatment.</p>
+                            <a href="products/sildenafil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/finasteride.html">Finasteride</a></h4>
+                            <p class="med-desc">5-alpha reductase inhibitor. Hair loss prevention and regrowth.</p>
+                            <a href="products/finasteride.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/sermorelin.html">Sermorelin</a></h4>
+                            <p class="med-desc">Growth hormone-releasing peptide. Natural GH stimulation, recovery.</p>
+                            <a href="products/sermorelin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">GH Boost</div>
+                            <h4><a href="products/cjc-1295-ipamorelin.html">CJC-1295 / Ipamorelin</a></h4>
+                            <p class="med-desc">Growth hormone secretagogue duo. Fat loss, muscle gain, recovery, anti-aging.</p>
+                            <a href="products/cjc-1295-ipamorelin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Cellular Repair</div>
+                            <h4><a href="products/nad-peptide.html">NAD+ Peptide</a></h4>
+                            <p class="med-desc">High-dose NAD+ for cellular repair, energy production, and longevity optimization.</p>
+                            <a href="products/nad-peptide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Women's Health -->
+                <div class="med-category" id="meds-womens-health">
+                    <h3 class="med-category-title">🌸 Women's Health</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <h4><a href="products/bi-est-5050-cream.html">Bi-Est 50/50 Cream</a></h4>
+                            <p class="med-desc">Bioidentical estrogen cream. Menopause symptom relief, bone protection.</p>
+                            <a href="products/bi-est-5050-cream.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/micronized-progesterone.html">Micronized Progesterone</a></h4>
+                            <p class="med-desc">Bioidentical progesterone. Sleep, mood, and hormonal balance support.</p>
+                            <a href="products/micronized-progesterone.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/testosterone-cream-women.html">Testosterone Cream (Women)</a></h4>
+                            <p class="med-desc">Low-dose testosterone for women. Libido, energy, and mood support.</p>
+                            <a href="products/testosterone-cream-women.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/minoxidil.html">Minoxidil</a></h4>
+                            <p class="med-desc">Topical hair growth stimulant. FDA-approved for androgenetic alopecia.</p>
+                            <a href="products/minoxidil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/estradiol-cream.html">Estradiol Cream</a></h4>
+                            <p class="med-desc">Bioidentical estrogen for vaginal dryness, atrophy, and discomfort. Localized hormone therapy.</p>
+                            <a href="products/estradiol-cream.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/vaginal-dhea.html">Vaginal DHEA</a></h4>
+                            <p class="med-desc">Prasterone for vaginal atrophy. Improves tissue health, moisture, and comfort.</p>
+                            <a href="products/vaginal-dhea.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Non-Hormonal</div>
+                            <h4><a href="products/ospemifene.html">Ospemifene</a></h4>
+                            <p class="med-desc">Selective estrogen receptor modulator. Non-hormonal option for painful intercourse.</p>
+                            <a href="products/ospemifene.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/vaginal-estrogen-tablet.html">Vaginal Estrogen Tablet</a></h4>
+                            <p class="med-desc">Low-dose localized estrogen. Treats vaginal dryness and urinary symptoms.</p>
+                            <a href="products/vaginal-estrogen-tablet.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/oxytocin-nasal-spray.html">Oxytocin Nasal Spray</a></h4>
+                            <p class="med-desc">Social bonding, mood, stress reduction. Enhances emotional connection and wellbeing.</p>
+                            <a href="products/oxytocin-nasal-spray.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/spironolactone.html">Spironolactone</a></h4>
+                            <p class="med-desc">Androgen blocker. Acne treatment, hair loss prevention, hormonal balance.</p>
+                            <a href="products/spironolactone.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">GH Boost</div>
+                            <h4><a href="products/cjc-1295-ipamorelin.html">CJC-1295 / Ipamorelin</a></h4>
+                            <p class="med-desc">Growth hormone secretagogue duo. Fat loss, muscle gain, recovery, anti-aging.</p>
+                            <a href="products/cjc-1295-ipamorelin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Libido</div>
+                            <h4><a href="products/pt-141.html">PT-141</a></h4>
+                            <p class="med-desc">Bremelanotide peptide. Libido enhancement for men and women. Works on CNS, not vascular.</p>
+                            <a href="products/pt-141.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sexual Health -->
+                <div class="med-category" id="meds-sexual-health">
+                    <h3 class="med-category-title">❤️ Sexual Health</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <h4><a href="products/tadalafil.html">Tadalafil</a></h4>
+                            <p class="med-desc">PDE5 inhibitor. 36-hour duration. ED treatment + cardiovascular benefits.</p>
+                            <a href="products/tadalafil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/sildenafil.html">Sildenafil</a></h4>
+                            <p class="med-desc">PDE5 inhibitor. 4-6 hour duration. Fast-acting ED treatment.</p>
+                            <a href="products/sildenafil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Libido</div>
+                            <h4><a href="products/pt-141.html">PT-141</a></h4>
+                            <p class="med-desc">Bremelanotide peptide. Libido enhancement for men and women. Works on CNS, not vascular.</p>
+                            <a href="products/pt-141.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/enclomiphene.html">Enclomiphene</a></h4>
+                            <p class="med-desc">Natural testosterone stimulation. Can improve libido and sexual function.</p>
+                            <a href="products/enclomiphene.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/vardenafil.html">Vardenafil</a></h4>
+                            <p class="med-desc">PDE5 inhibitor. Fast-acting ED treatment with cardiovascular safety profile.</p>
+                            <a href="products/vardenafil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/oxytocin-nasal-spray.html">Oxytocin Nasal Spray</a></h4>
+                            <p class="med-desc">Social bonding, mood, stress reduction. Enhances emotional connection and wellbeing.</p>
+                            <a href="products/oxytocin-nasal-spray.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/testosterone-cream-women.html">Testosterone Cream (Women)</a></h4>
+                            <p class="med-desc">Low-dose testosterone for women. Libido, energy, and mood support.</p>
+                            <a href="products/testosterone-cream-women.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cardiovascular -->
+                <div class="med-category" id="meds-cardiovascular">
+                    <h3 class="med-category-title">🫀 Cardiovascular</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <h4><a href="products/tadalafil.html">Tadalafil</a></h4>
+                            <p class="med-desc">PDE5 inhibitor. 36-hour duration. ED treatment + cardiovascular benefits.</p>
+                            <a href="products/tadalafil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">Most Popular</div>
+                            <h4><a href="products/semaglutide.html">Semaglutide</a></h4>
+                            <p class="med-desc">GLP-1 receptor agonist. 15-20% weight loss + 20% cardiovascular event reduction.</p>
+                            <a href="products/semaglutide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Maximum Results</div>
+                            <h4><a href="products/tirzepatide.html">Tirzepatide</a></h4>
+                            <p class="med-desc">Dual GLP-1/GIP agonist. Superior glycemic control + cardiometabolic benefits.</p>
+                            <a href="products/tirzepatide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/metformin.html">Metformin</a></h4>
+                            <p class="med-desc">Insulin sensitizer. Improves metabolic markers and cardiovascular risk.</p>
+                            <a href="products/metformin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/atorvastatin.html">Atorvastatin</a></h4>
+                            <p class="med-desc">HMG-CoA reductase inhibitor. LDL cholesterol reduction, cardiovascular protection.</p>
+                            <a href="products/atorvastatin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/rosuvastatin.html">Rosuvastatin</a></h4>
+                            <p class="med-desc">High-intensity statin. Superior LDL reduction, plaque regression support.</p>
+                            <a href="products/rosuvastatin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/lisinopril.html">Lisinopril</a></h4>
+                            <p class="med-desc">ACE inhibitor. Blood pressure control, kidney protection, heart failure prevention.</p>
+                            <a href="products/lisinopril.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/losartan.html">Losartan</a></h4>
+                            <p class="med-desc">ARB blood pressure medication. Cardiovascular protection with fewer side effects.</p>
+                            <a href="products/losartan.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <div class="med-badge">Metabolic+</div>
+                            <h4><a href="products/telmisartan.html">Telmisartan</a></h4>
+                            <p class="med-desc">ARB with PPAR-gamma activity. Blood pressure control, metabolic benefits, neuroprotection.</p>
+                            <a href="products/telmisartan.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/amlodipine.html">Amlodipine</a></h4>
+                            <p class="med-desc">Calcium channel blocker. Effective blood pressure control, angina prevention.</p>
+                            <a href="products/amlodipine.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/metoprolol.html">Metoprolol</a></h4>
+                            <p class="med-desc">Beta-blocker. Heart rate control, blood pressure reduction, anxiety management.</p>
+                            <a href="products/metoprolol.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/ezetimibe.html">Ezetimibe</a></h4>
+                            <p class="med-desc">Cholesterol absorption inhibitor. LDL reduction when statins alone aren't enough.</p>
+                            <a href="products/ezetimibe.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <div class="med-badge">Heart & Kidney</div>
+                            <h4><a href="products/empagliflozin.html">Empagliflozin</a></h4>
+                            <p class="med-desc">SGLT2 inhibitor. Cardiovascular protection, kidney protection, glucose control.</p>
+                            <a href="products/empagliflozin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/apixaban.html">Apixaban</a></h4>
+                            <p class="med-desc">Direct oral anticoagulant. Stroke prevention, blood clot reduction.</p>
+                            <a href="products/apixaban.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/clopidogrel.html">Clopidogrel</a></h4>
+                            <p class="med-desc">Antiplatelet agent. Prevents heart attacks and strokes in high-risk patients.</p>
+                            <a href="products/clopidogrel.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/niacin-extended-release.html">Niacin (Extended Release)</a></h4>
+                            <p class="med-desc">Vitamin B3 for HDL elevation, triglyceride reduction. Cardiovascular support.</p>
+                            <a href="products/niacin-extended-release.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/fenofibrate.html">Fenofibrate</a></h4>
+                            <p class="med-desc">Fibrate for triglyceride reduction. Combined with statins for complete lipid control.</p>
+                            <a href="products/fenofibrate.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hair & Skin -->
+                <div class="med-category" id="meds-hair-skin">
+                    <h3 class="med-category-title">💇 Hair &amp; Skin</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <h4><a href="products/finasteride.html">Finasteride</a></h4>
+                            <p class="med-desc">5-alpha reductase inhibitor. Hair loss prevention and regrowth.</p>
+                            <a href="products/finasteride.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/minoxidil.html">Minoxidil</a></h4>
+                            <p class="med-desc">Topical hair growth stimulant. FDA-approved for androgenetic alopecia.</p>
+                            <a href="products/minoxidil.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Skin &amp; Hair</div>
+                            <h4><a href="products/ghk-cu.html">GHK-Cu</a></h4>
+                            <p class="med-desc">Copper peptide. Skin rejuvenation, wound healing, collagen synthesis.</p>
+                            <a href="products/ghk-cu.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Premium Blend</div>
+                            <h4><a href="products/glow-ghk-cu-bpc-157-tb-500.html">Glow (GHK-Cu / BPC-157 / TB-500)</a></h4>
+                            <p class="med-desc">Triple peptide blend for skin rejuvenation, healing, and recovery.</p>
+                            <a href="products/glow-ghk-cu-bpc-157-tb-500.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/dutasteride.html">Dutasteride</a></h4>
+                            <p class="med-desc">5-alpha reductase inhibitor. Stronger than finasteride for hair loss and prostate health.</p>
+                            <a href="products/dutasteride.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/ketoconazole-shampoo.html">Ketoconazole Shampoo</a></h4>
+                            <p class="med-desc">Anti-fungal shampoo. Dandruff, seborrheic dermatitis, and hair loss support.</p>
+                            <a href="products/ketoconazole-shampoo.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Cutting-Edge</div>
+                            <h4><a href="products/topical-rapamycin-hair.html">Topical Rapamycin (Hair)</a></h4>
+                            <p class="med-desc">mTOR inhibition for hair follicle health. Emerging therapy for hair preservation.</p>
+                            <a href="products/topical-rapamycin-hair.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/spironolactone.html">Spironolactone</a></h4>
+                            <p class="med-desc">Androgen blocker. Acne treatment, hair loss prevention, hormonal balance.</p>
+                            <a href="products/spironolactone.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/bimatoprost.html">Bimatoprost</a></h4>
+                            <p class="med-desc">Eyelash growth serum. FDA-approved for hypotrichosis. Fuller, longer lashes.</p>
+                            <a href="products/bimatoprost.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">Antioxidant</div>
+                            <h4><a href="products/glutathione-injectable.html">Glutathione Injectable</a></h4>
+                            <p class="med-desc">Master antioxidant. Skin brightening, detoxification, immune support.</p>
+                            <a href="products/glutathione-injectable.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Cellular Repair</div>
+                            <h4><a href="products/nad-peptide.html">NAD+ Peptide</a></h4>
+                            <p class="med-desc">High-dose NAD+ for cellular repair, energy production, and longevity optimization.</p>
+                            <a href="products/nad-peptide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skincare -->
+                <div class="med-category" id="meds-skincare">
+                    <h3 class="med-category-title">✨ Skincare</h3>
+                    <div class="med-grid">
+                        <div class="med-card animate-on-scroll">
+                            <h4><a href="products/tretinoin.html">Tretinoin</a></h4>
+                            <p class="med-desc">Topical retinoid. Anti-aging, acne, collagen stimulation.</p>
+                            <a href="products/tretinoin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/azelaic-acid.html">Azelaic Acid</a></h4>
+                            <p class="med-desc">Topical for acne, rosacea, and hyperpigmentation. Anti-inflammatory and antibacterial.</p>
+                            <a href="products/azelaic-acid.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <h4><a href="products/hydroquinone.html">Hydroquinone</a></h4>
+                            <p class="med-desc">Skin lightening agent. Treats melasma, dark spots, and hyperpigmentation.</p>
+                            <a href="products/hydroquinone.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <h4><a href="products/clindamycin-benzoyl-peroxide.html">Clindamycin/Benzoyl Peroxide</a></h4>
+                            <p class="med-desc">Dual-action acne treatment. Antibiotic + antibacterial for moderate to severe acne.</p>
+                            <a href="products/clindamycin-benzoyl-peroxide.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <div class="med-badge">Cutting-Edge</div>
+                            <h4><a href="products/topical-rapamycin-skin.html">Topical Rapamycin (Skin)</a></h4>
+                            <p class="med-desc">mTOR inhibition for skin aging. Reduces senescent cells, improves skin quality.</p>
+                            <a href="products/topical-rapamycin-skin.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <h4><a href="products/ketoconazole-shampoo.html">Ketoconazole Shampoo</a></h4>
+                            <p class="med-desc">Anti-fungal shampoo. Dandruff, seborrheic dermatitis, and hair loss support.</p>
+                            <a href="products/ketoconazole-shampoo.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-3">
+                            <div class="med-badge">Skin &amp; Hair</div>
+                            <h4><a href="products/ghk-cu.html">GHK-Cu</a></h4>
+                            <p class="med-desc">Copper peptide. Skin rejuvenation, wound healing, collagen synthesis, anti-aging.</p>
+                            <a href="products/ghk-cu.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-4">
+                            <div class="med-badge">Premium Blend</div>
+                            <h4><a href="products/glow-ghk-cu-bpc-157-tb-500.html">Glow (GHK-Cu / BPC-157 / TB-500)</a></h4>
+                            <p class="med-desc">Triple peptide blend for skin rejuvenation, healing, and recovery. Maximum anti-aging.</p>
+                            <a href="products/glow-ghk-cu-bpc-157-tb-500.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-1">
+                            <h4><a href="products/bimatoprost.html">Bimatoprost</a></h4>
+                            <p class="med-desc">Eyelash growth serum. FDA-approved for hypotrichosis. Fuller, longer lashes.</p>
+                            <a href="products/bimatoprost.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                        <div class="med-card animate-on-scroll animate-delay-2">
+                            <div class="med-badge">Antioxidant</div>
+                            <h4><a href="products/glutathione-injectable.html">Glutathione Injectable</a></h4>
+                            <p class="med-desc">Master antioxidant. Skin brightening, detoxification, immune support.</p>
+                            <a href="products/glutathione-injectable.html" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="med-disclaimer">
+                    <p><strong>Important:</strong> All medications require a licensed provider review and prescription. Prices shown are estimates and may vary based on pharmacy, dose, and location. Not all medications are appropriate for all patients.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Argo<span style="color: var(--argo-gold);">MD</span></span>
+                    <p>Physician-guided metabolic and longevity care, delivered online. Licensed provider oversight, lab-based protocols, and U.S. pharmacy fulfillment when clinically appropriate.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Protocols</h4>
+                    <a href="#protocol-metabolic">Metabolic Reset</a>
+                    <a href="#protocol-performance">Performance & Recovery</a>
+                    <a href="#protocol-hormone">Hormone Optimization</a>
+                    <a href="#protocol-cellular">Cellular Health</a>
+                    <a href="#protocol-peptide">Peptide Therapy</a>
+                    <a href="#protocol-sexual">Sexual Health</a>
+                    <a href="#protocol-cardiovascular">Cardiovascular</a>
+                    <a href="#protocol-hair">Hair & Skin</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Medications</h4>
+                    <a href="#meds-weight-loss">Weight Loss (GLP-1s)</a>
+                    <a href="#meds-longevity">Longevity</a>
+                    <a href="#meds-peptides">Peptides</a>
+                    <a href="#meds-mens-health">Men's Health</a>
+                    <a href="#meds-womens-health">Women's Health</a>
+                    <a href="#meds-sexual-health">Sexual Health</a>
+                    <a href="#meds-cardiovascular">Cardiovascular</a>
+                    <a href="#meds-hair-skin">Hair & Skin</a>
+                    <a href="#meds-skincare">Skincare</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#science">Science</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/tos.html">Terms of Service</a>
+                    <a href="/hipaa.html">HIPAA Notice</a>
+                    <a href="#">Telehealth Consent</a>
+                    <a href="#">State Availability</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ArgoMD. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
