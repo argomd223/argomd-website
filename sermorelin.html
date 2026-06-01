@@ -211,7 +211,7 @@
         </div>
 
     <div class="product-images" id="productCarousel">
-        <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide">
                 <img src="/assets/product-shots/Sermorelin.jpg?v=5" alt="Sermorelin">
             </div>
@@ -219,23 +219,17 @@
                 <img src="/assets/infographics/by-medication/sermorelin.jpg?v=5" alt="Clinical Results">
             </div>
             <div class="carousel-slide">
-                <img src="/assets/infographics/generic/clinical-results.jpg?v=5" alt="Clinical Results">
-            </div>
-            <div class="carousel-slide">
                 <img src="/assets/infographics/generic/physician-prescribed.jpg?v=5" alt="Physician Prescribed">
             </div>
             <div class="carousel-slide">
                 <img src="/assets/infographics/generic/fda-registered.jpg?v=5" alt="FDA Registered">
             </div>
-        </div>
-        <div class="carousel-dots" id="carouselDots">
+        </div>        <div class="carousel-dots" id="carouselDots">
             <button class="carousel-dot active" data-index="0"></button>
             <button class="carousel-dot" data-index="1"></button>
             <button class="carousel-dot" data-index="2"></button>
             <button class="carousel-dot" data-index="3"></button>
-            <button class="carousel-dot" data-index="4"></button>
-        </div>
-    </div>
+        </div>    </div>
 
     <div class="product-info">
         <div class="product-badge-row"><span class="badge badge-primary">Prescription</span><span class="badge badge-secondary">U.S. Licensed Pharmacy</span><span class="badge badge-secondary">Physician-Reviewed</span><span class="badge badge-secondary">Daily Injection</span><span class="badge badge-secondary">FSA/HSA</span><span class="badge badge-secondary">Cancel Anytime</span></div>
@@ -625,7 +619,7 @@
         const track = document.getElementById('carouselTrack');
         const dots = document.querySelectorAll('.carousel-dot');
         let currentSlide = 0;
-        const totalSlides = 5;
+        const totalSlides = 4;
 
         function goToSlide(index, animate = true) {
             currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
@@ -704,4 +698,3 @@
         <button class="btn-atc" id="btnAtc">Start Free Assessment</button>
     </div>
 </body>
-</html>
