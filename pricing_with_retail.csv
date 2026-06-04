@@ -1,0 +1,94 @@
+
+STERILE MEDICATIONS,,,,,,,,
+Category,Regemin Step,Dose,Medication,Type,API mg,Vial Size,Tier 1 Pricing,
+GLP1's Pharmacy 1,,,,,,,,
+Weight Loss,Step 1,Up to 0.3125mg Weekly,Semaglutide/Pyridoxine,Injectable,1.25mg,1ml,$85.00,$212.50
+Weight Loss,Step 2,Up to 0.625mg Weekly,Semaglutide/Pyridoxine,Injectable,2.5mg,1ml,$90.00,$225.00
+Weight Loss,Step 3,Up to 1.25mg Weekly,Semaglutide/Pyridoxine,Injectable,5mg,2ml,$100.00,$250.00
+Weight Loss,Step 4,Up to 1.875mg Weekly,Semaglutide/Pyridoxine,Injectable,7.5mg,3ml,$110.00,$275.00
+Weight Loss,Step 5,Up to 2.5mg Weekly,Semaglutide/Pyridoxine,Injectable,10mg,4ml,$120.00,$300.00
+
+Weight Loss,Step 1,Up to 2mg Weekly,Tirzepatide/Pyridoxine,Injectable,8mg,1ml,$102.00,$255.00
+Weight Loss,Step 2,Up to 3.125mg Weekly,Tirzepatide/Pyridoxine,Injectable,12.5mg,1ml,$129.00,$322.50
+Weight Loss,Step 3,Up to 6.25mg Weekly,Tirzepatide/Pyridoxine,Injectable,25mg,2ml,$168.00,$420.00
+Weight Loss,Step 4,Up to 9.375mg Weekly,Tirzepatide/Pyridoxine,Injectable,38mg,3ml,$196.00,$490.00
+Weight Loss,Step 5,Up to 12.5mg Weekly,Tirzepatide/Pyridoxine,Injectable,50mg,4ml,$218.00,$545.00
+Weight Loss,Step 6,Up to 15mg Weekly,Tirzepatide/Pyridoxine,Injectable,60mg,3ml,$236.00,$590.00
+
+GLP1's Pharmacy 2,,,,,,,,,
+Weight Loss,Step 1,Up to 0.25mg Weekly,Semaglutide/Cyanocobalamin,Injectable,1mg,1ml,$85.00,$212.50
+Weight Loss,Step 2,Up to 0.5mg Weekly,Semaglutide/Cyanocobalamin,Injectable,2mg,1ml,$90.00,$225.00
+Weight Loss,Step 3,Up to 1.0mg Weekly,Semaglutide/Cyanocobalamin,Injectable,4mg,1ml,$100.00,$250.00
+Weight Loss,Step 4,Up to 1.5mg Weekly,Semaglutide/Cyanocobalamin,Injectable,6mg,1ml,$110.00,$275.00
+Weight Loss,Step 5,Up to 2.5mg Weekly,Semaglutide/Cyanocobalamin,Injectable,10mg,1ml,$120.00,$300.00
+
+Weight Loss,Step 1,Up to 2.5mg Weekly,Tirzepatide/Cyanocobalamin,Injectable,5mg,2ml,$102.00,$255.00
+Weight Loss,Step 2,Up to 5mg Weekly,Tirzepatide/Cyanocobalamin,Injectable,10mg,2ml,$129.00,$322.50
+Weight Loss,Step 3,Up to 7.5mg Weekly,Tirzepatide/Cyanocobalamin,Injectable,15mg,2ml,$168.00,$420.00
+Weight Loss,Step 4,Up to 10mg Weekly,Tirzepatide/Cyanocobalamin,Injectable,20mg,2ml,$196.00,$490.00
+Weight Loss,Step 5,Up to 12.5mg Weekly,Tirzepatide/Cyanocobalamin,Injectable,25mg,2ml,$218.00,$545.00
+Weight Loss,Step 6,Up to 15mg Weekly,Tirzepatide/Cyanocobalamin,Injectable,30mg,2ml,$236.00,$590.00
+
+PEPTIDES,,,,,,,,
+Peptide Therapy,-,-,GHK-Cu,Injectable,10mg,5ml,$85.00,$212.50
+Peptide Therapy,-,600 mcg/day,BPC-157,Injectable,3mg,5ml,$85.00,$212.50
+Peptide Therapy,-,Glow - GHK-Cu / BPC-157 / KPV / TB-500 3mg/10mg/3mg/3mg/ml,Glow,Injectable,3mg/10mg/3mg/3mg/ml,5ml,$100.00,$250.00
+Peptide Therapy,-,Wolverine - BPC-157 / KPV / TB-500 3mg/3mg/3mg/ml,Wolverine,Injectable,3mg/3mg/3mg/ml,5ml,$100.00,$250.00
+Peptide Therapy,-,-,CJC-1295/Ipamorelin,Injectable,1.2mg/2mg/ml,5ml,$100.00,$250.00
+Peptide Therapy,-,-,Semax / Selank,Injectable,1mg/1mg/ml,5ml,$85.00,$212.50
+Peptide Therapy,-,-,MOTS-C,Injectable,3mg/2mg/ml,5ml,$100.00,$250.00
+Peptide Therapy,-,-,Tesamorelin,Injectable,3mg,5ml,$85.00,$212.50
+Peptide Therapy,-,-,PT-141,Injectable,10mg,4ml,$95.00,$237.50
+Peptide Therapy,-,-,MIC B12,Injectable,25mg/50mg/100mg/1mg/mL,10ml,$75.00,$187.50
+Peptide Therapy,-,-,NAD+,Injectable,1000mg,5ml,$85.00,$212.50
+Peptide Therapy,-,-,Glutathione,Injectable,200mg,4ml,$70.00,$175.00
+Peptide Therapy,-,-,Sermorelin,Injectable, 1mg,4ml,$80.00,$200.00
+Peptide Therapy,-,-,TB-500,Injectable,,,,
+
+HORMONES,,,,,,,,
+Hormone Therapy,-,-,,,,,Coming Soon,Coming Soon
+Hormone Therapy,-,-,,,,,Coming Soon,Coming Soon
+NON-STERILE MEDICATIONS,,,,,,,,
+Category,Regemin Step,Dose,Medication,Type,Total Compound Strength,Quantity,Tier 1 Pricing,
+GLP1's,,,,,,,,
+Weight Loss,High Dose+ - Step 1,4mg Daily,Semaglutide 4mg/Pyridoxine 10mg,Troche,,30,$85.00,$212.50
+Weight Loss,High Dose+ - Step 2,6mg Daily,Semaglutide 6mg/Pyridoxine 10mg,Troche,,30,$97.00,$242.50
+Weight Loss,High Dose+ - Step 3 (Maintain),12mg Daily,Semaglutide 12mg/Pyridoxine 10mg,Troche,,30,$136.00,$340.00
+Weight Loss,High Dose+ - Extreme Obesity,24mg Daily,Semaglutide 24mg/Pyridoxine 10mg,Troche,,30,$218.00,$545.00
+
+Weight Loss,Low Dose - Step 1,4mg Daily,Tirzepatide,Troche,,30,$140.00,$350.00
+Weight Loss,Low Dose - Step 2,6mg Daily,Tirzepatide,Troche,,30,$165.00,$412.50
+Weight Loss,Low Dose - Step 3,10mg Daily,Tirzepatide,Troche,,30,$200.00,$500.00
+Weight Loss,Low Dose - Step 4,20mg Daily,Tirzepatide,Troche,,30,$230.00,$575.00
+
+PEPTIDES,,,,,,,,
+Peptide Therapy,Nasal Spray,Up to 100mg per week,NAD+,Nasal Spray,500mg,5ml,$85.00,$212.50
+Peptide Therapy,Cream,2g daily,GHK-Cu (30 Grams) 1.5%,Cream,,,$80.00,$200.00
+Peptide Therapy,Cap,500mcg M-F,Sermorelin,Capsule,,,$80.00,$200.00
+Peptide Therapy,Troche,1000mcg M-F,Sermorelin,Troche,,,$80.00,$200.00
+
+Anti Parasitic / Anti Fungal,,,,,,,,
+Peptide Therapy,CAPSULE,12mg daily,Ivermectin 12mg caps,Capsule,12mg,30 Units,$30.00,$75.00
+Peptide Therapy,CAPSULE,100mg daily,Mebendazole 100mg caps,Capsule,100mg,30 Units,$45.00,$112.50
+
+Hair Growth,,,,,,,,
+Hair Growth,ODT,Lush Lox (Female),Minoxidil 2.5mg / Biotin 1mg / Vit D3 2000IU / Vit K2 100 mcg ,ODT,,30,Coming Soon,Coming Soon
+Hair Growth,ODT,Folicle Fuel 1 (Male),Finasteride 1mg / Minoxidil 2.5mg / Biotin 1mg / Vit D3 2000IU / Vit K2 100mcg,ODT,,30,Coming Soon,Coming Soon
+Hair Growth,ODT,Folicle Fuel 2 (Male),Dutasteride 0.5mg / Minoxidil 2.5mg / Biotin 1mg / Vit D3 2000IU / Vit K2 100mcg,ODT,,30,Coming Soon,Coming Soon
+Hair Growth,ODT,ReGrow Fuel (Male),Minoxidil 2.5mg/GHK-Cu 5mg/Apigenin 50mg/Fisetin 50mg,ODT,,30,Coming Soon,Coming Soon
+
+ED MEN,,,,,,,,
+Sexual Health - Male,PRN,Sildenafil,Sildenafil 25mg,ODT,,6,$25.00,$62.50
+Sexual Health - Male,PRN,Sildenafil,Sildenafil 25mg,ODT,,12,$50.00,$125.00
+Sexual Health - Male,PRN,Sildenafil,Sildenafil 25mg,ODT,,18,$75.00,$187.50
+Sexual Health - Male,PRN,Tadalafil,Tadalafil 10mg,ODT,,6,$25.00,$62.50
+Sexual Health - Male,PRN,Tadalafil,Tadalafil 10mg,ODT,,12,$50.00,$125.00
+Sexual Health - Male,PRN,Tadalafil,Tadalafil 10mg,ODT,,18,$75.00,$187.50
+Sexual Health - Male,PRN,Tri,Tadalafil 20mg / Sildenafil 70mg / Apomorphine 2mg,ODT,,6,$30.00,$75.00
+Sexual Health - Male,PRN,Tri,Tadalafil 20mg / Sildenafil 70mg / Apomorphine 2mg,ODT,,12,$60.00,$150.00
+Sexual Health - Male,PRN,Tri,Tadalafil 20mg / Sildenafil 70mg / Apomorphine 2mg,ODT,,18,$90.00,$225.00
+
+"PARTIAL CATALOG — PRICING IS A PHARMACY PARTNER LIST, NOT A REMEDORA QUOTE
+
+The pricing shown is the Tier 1 wholesale-style pricing published by a licensed compounding pharmacy partner in Remedora’s partner network, current as of May 2026. Pricing is set by the pharmacy, not Remedora, and volume-based tiers may apply. The tables that follow reflect common categories only. The full catalog is broader and includes additional formulations, dose variants, combination products, and categories not shown. Recipients with interest in products not listed may contact abe@remedora.com.
+Availability of any product is subject to federal and state regulatory status, the pharmacy’s licensure, applicable 503A / 503B rules, patient-specific prescription requirements, and clinical appropriateness. See regulatory notes following each category.",,,,,,,,
