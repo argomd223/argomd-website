@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semax / Selank | Prescription Nootropic Peptides for Cognitive Enhancement | ArgoMD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-green: #1c4231;
+            --brand-gold: #d49e3f;
+            --sage: #5a7a6a;
+            --cream: #f7f5f0;
+            --charcoal: #1a1a1a;
+            --warm-gray: #6b6b6b;
+            --light-gray: #f0eeea;
+            --success: #2d8a5e;
+            --error: #c0392b;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--charcoal);
+            background: var(--white);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-bottom: 72px;
+        }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; height: 56px; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+        .header-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--brand-green); text-decoration: none; letter-spacing: -0.02em; }
+        .header-logo span { color: var(--brand-gold); }
+        .product-images { position: relative; width: 100%; padding-top: 100%; background: linear-gradient(135deg, var(--cream) 0%, #fff 100%); overflow: hidden; margin-top: 56px; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+        .carousel-track { position: absolute; top: 0; left: 0; width: 100%; display: flex; height: 100%; will-change: transform; }
+        .carousel-slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden; }
+        .carousel-slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; pointer-events: none; }
+        .carousel-dots { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.25); border: none; cursor: pointer; transition: all 0.3s ease; padding: 0; }
+        .carousel-dot.active { background: var(--brand-green); width: 24px; border-radius: 4px; }
+
+        .product-info { padding: 20px 16px 0; }
+        .product-badge-row { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+        .badge-primary { background: var(--brand-green); color: white; }
+        .badge-secondary { background: var(--cream); color: var(--brand-green); }
+        .badge-gold { background: rgba(212,158,63,0.12); color: var(--brand-gold); }
+        .product-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--charcoal); line-height: 1.15; margin-bottom: 8px; letter-spacing: -0.02em; }
+        .product-subtitle { font-size: 15px; color: var(--warm-gray); margin-bottom: 16px; line-height: 1.4; }
+        .product-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+        .stars { display: flex; gap: 2px; }
+        .stars svg { width: 16px; height: 16px; }
+        .rating-text { font-size: 13px; color: var(--warm-gray); }
+        .rating-text strong { color: var(--charcoal); }
+
+        .product-highlights { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 10px; }
+        .product-highlights li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--charcoal); font-weight: 500; }
+        .product-highlights li svg { width: 20px; height: 20px; flex-shrink: 0; }
+        .pricing-section { padding: 0 16px; margin-bottom: 16px; }
+        .plan-selector { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+        .plan-option { flex: 1; padding: 14px 12px; border: 2px solid var(--light-gray); border-radius: var(--radius-md); text-align: center; cursor: pointer; transition: all 0.2s; position: relative; background: white; }
+        .plan-option.active { border-color: var(--brand-green); background: rgba(28,66,49,0.03); }
+        .plan-option .plan-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--warm-gray); margin-bottom: 4px; }
+        .plan-option.active .plan-label { color: var(--brand-green); }
+        .plan-option .plan-price { font-size: 20px; font-weight: 700; color: var(--charcoal); }
+        .plan-option .plan-period { font-size: 12px; color: var(--warm-gray); }
+        .plan-option .plan-save { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--brand-gold); color: white; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap; }
+        .price-display { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+        .price-current { font-size: 32px; font-weight: 800; color: var(--charcoal); }
+        .price-original { font-size: 18px; color: var(--warm-gray); text-decoration: line-through; }
+        .price-per-dose { font-size: 13px; color: var(--warm-gray); margin-bottom: 16px; }
+        .price-per-dose strong { color: var(--brand-green); }
+
+        .btn-get-started { width: 100%; height: 52px; background: var(--brand-green); color: white; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; letter-spacing: 0.01em; margin-top: 16px; }
+        .btn-get-started:active { transform: scale(0.98); opacity: 0.9; }
+        .atc-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid rgba(0,0,0,0.08); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); z-index: 999; display: flex; gap: 12px; align-items: center; }
+        .btn-atc { flex: 1; height: 48px; background: var(--brand-green); color: white; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; letter-spacing: 0.01em; }
+        .btn-atc:active { transform: scale(0.98); opacity: 0.9; }
+        .btn-atc svg { width: 18px; height: 18px; }
+
+                .pharmacy-banner { background: linear-gradient(135deg, var(--brand-green) 0%, #2a5a44 100%); color: white; padding: 16px 20px; border-radius: var(--radius-md); margin: 20px 0; display: flex; align-items: center; gap: 12px; }
+        .pharmacy-banner svg { width: 24px; height: 24px; color: var(--brand-gold); flex-shrink: 0; }
+        .pharmacy-banner strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+        .pharmacy-banner span { font-size: 13px; opacity: 0.9; }
+        .trust-bar { display: flex; justify-content: space-around; padding: 16px; background: var(--cream); margin: 0 16px 16px; border-radius: var(--radius-md); }
+        .trust-item { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+        .trust-item svg { width: 24px; height: 24px; color: var(--brand-green); }
+        .trust-item span { font-size: 11px; font-weight: 600; color: var(--charcoal); line-height: 1.2; }
+
+        .section { padding: 32px 16px; border-top: 1px solid var(--light-gray); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; line-height: 1.2; }
+        .section-subtitle { font-size: 15px; color: var(--warm-gray); margin-bottom: 24px; line-height: 1.5; }
+
+        .steps { display: flex; flex-direction: column; gap: 20px; }
+        .step { display: flex; gap: 16px; align-items: flex-start; }
+        .step-number { width: 40px; height: 40px; background: var(--brand-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+        .step-content h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--charcoal); }
+        .step-content p { font-size: 14px; color: var(--warm-gray); line-height: 1.5; }
+
+        .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .benefit-card { background: var(--cream); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; }
+        .benefit-card .icon { width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; box-shadow: var(--shadow-sm); }
+        .benefit-card .icon svg { width: 24px; height: 24px; color: var(--brand-green); }
+        .benefit-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--charcoal); }
+        .benefit-card p { font-size: 12px; color: var(--warm-gray); line-height: 1.4; }
+
+        .clinical-card { background: linear-gradient(135deg, var(--brand-green) 0%, #2a5a44 100%); color: white; border-radius: var(--radius-lg); padding: 28px 24px; margin-bottom: 16px; }
+        .clinical-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .clinical-card p { font-size: 14px; opacity: 0.85; line-height: 1.5; margin-bottom: 20px; }
+        .stat-row { display: flex; gap: 16px; }
+        .stat { flex: 1; }
+        .stat-number { font-size: 32px; font-weight: 800; color: var(--brand-gold); line-height: 1; }
+        .stat-label { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+
+        .mechanism-list { display: flex; flex-direction: column; gap: 12px; }
+        .mechanism-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--cream); border-radius: var(--radius-md); }
+        .mechanism-icon { width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow-sm); }
+        .mechanism-icon svg { width: 24px; height: 24px; color: var(--brand-green); }
+        .mechanism-text h4 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .mechanism-text p { font-size: 13px; color: var(--warm-gray); }
+
+        .faq-item { border-bottom: 1px solid var(--light-gray); }
+        .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 18px 0; background: none; border: none; font-size: 15px; font-weight: 600; color: var(--charcoal); cursor: pointer; text-align: left; line-height: 1.4; }
+        .faq-icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; flex-shrink: 0; margin-left: 12px; }
+        .faq-icon svg { width: 16px; height: 16px; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-answer.active { max-height: 300px; padding-bottom: 18px; }
+        .faq-answer p { font-size: 14px; color: var(--warm-gray); line-height: 1.6; }
+
+        .review-card { background: white; border: 1px solid var(--light-gray); border-radius: var(--radius-md); padding: 20px; margin-bottom: 12px; }
+        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--brand-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+        .review-meta { flex: 1; }
+        .review-name { font-size: 14px; font-weight: 700; color: var(--charcoal); }
+        .review-verified { font-size: 12px; color: var(--success); display: flex; align-items: center; gap: 4px; }
+        .review-verified svg { width: 12px; height: 12px; }
+        .review-stars { display: flex; gap: 2px; margin-bottom: 8px; }
+        .review-stars svg { width: 14px; height: 14px; }
+        .review-text { font-size: 14px; color: var(--charcoal); line-height: 1.5; }
+        .review-date { font-size: 12px; color: var(--warm-gray); margin-top: 8px; }
+
+        .guarantee-banner { background: linear-gradient(135deg, var(--cream) 0%, white 100%); border: 2px solid var(--brand-gold); border-radius: var(--radius-lg); padding: 24px; text-align: center; margin: 0 16px 24px; }
+        .guarantee-banner .icon { width: 56px; height: 56px; background: rgba(212,158,63,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+        .guarantee-banner .icon svg { width: 28px; height: 28px; color: var(--brand-gold); }
+        .guarantee-banner h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .guarantee-banner p { font-size: 14px; color: var(--warm-gray); line-height: 1.5; }
+
+        .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .compliance-item { display: flex; align-items: center; gap: 10px; padding: 14px; background: var(--cream); border-radius: var(--radius-md); }
+        .compliance-item svg { width: 20px; height: 20px; color: var(--brand-green); flex-shrink: 0; }
+        .compliance-item span { font-size: 13px; font-weight: 600; color: var(--charcoal); line-height: 1.3; }
+
+        .cta-section { background: var(--brand-green); color: white; padding: 40px 24px; text-align: center; margin-bottom: 80px; }
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+        .cta-section p { font-size: 15px; opacity: 0.85; margin-bottom: 24px; line-height: 1.5; }
+        .btn-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 40px; background: var(--brand-gold); color: white; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+        .btn-cta:active { transform: scale(0.98); opacity: 0.9; }
+
+        .footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 32px 16px; font-size: 12px; text-align: center; line-height: 1.6; }
+        .footer p { margin-bottom: 8px; }
+        .footer-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 16px; }
+        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500; }
+
+        }
+
+        @media (min-width: 480px) {
+            .benefits-grid { grid-template-columns: 1fr 1fr; }
+            .plan-selector { flex-direction: row; }
+        }
+        @media (max-width: 480px) {
+            .compliance-grid { grid-template-columns: 1fr; }
+            .trust-bar { flex-direction: column; gap: 12px; align-items: center; }
+            .stat-row { flex-direction: column; gap: 16px; }
+            .atc-bar { padding: 8px 12px; }
+            .atc-bar .btn-get-started { padding: 10px 16px; font-size: 13px; }
+    @media (min-width: 768px) {
+            .product-images { padding-top: 60%; }
+            .product-info, .pricing-section { padding-left: 24px; padding-right: 24px; }
+            .section { padding-left: 24px; padding-right: 24px; }
+            .product-title { font-size: 36px; }
+            .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+            .compliance-grid { grid-template-columns: repeat(4, 1fr); }
+            .atc-bar { padding-left: 24px; padding-right: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="/" class="header-logo">Argo<span>MD</span></a>
+        </header>
+<div class="hero-trust" style="display:flex;justify-content:center;gap:12px;padding:10px 16px;background:var(--cream);border-bottom:1px solid rgba(0,0,0,0.06);margin-top:56px;flex-wrap:wrap;">
+            <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Prescription Required</span>
+            <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>U.S. Pharmacy</span>
+            <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Licensed MDs</span>
+            <span style="font-size:11px;font-weight:600;color:var(--sage);display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="3"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>FSA/HSA</span>
+        </div>
+
+    <div class="product-images" id="productCarousel">
+                <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+                <img src="/assets/product-shots/Semax_Selank.jpg?v=5" alt="Semax / Selank">
+            </div>
+            <div class="carousel-slide">
+                <img src="/assets/infographics/by-medication/semax-selank.jpg?v=5" alt="Clinical Results">
+            </div>
+            <div class="carousel-slide">
+                <img src="/assets/infographics/generic/physician-prescribed.jpg?v=5" alt="Physician Prescribed">
+            </div>
+            <div class="carousel-slide">
+                <img src="/assets/infographics/generic/fda-registered.jpg?v=5" alt="FDA Registered">
+            </div>
+        </div>        <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" data-index="0"></button>
+            <button class="carousel-dot" data-index="1"></button>
+            <button class="carousel-dot" data-index="2"></button>
+            <button class="carousel-dot" data-index="3"></button>
+        </div>    </div>
+
+    <div class="product-info">
+        <div class="product-badge-row"><span class="badge badge-primary">Prescription</span><span class="badge badge-secondary">U.S. Licensed Pharmacy</span><span class="badge badge-secondary">Physician-Reviewed</span><span class="badge badge-secondary">Daily Injection</span><span class="badge badge-secondary">FSA/HSA</span><span class="badge badge-secondary">Cancel Anytime</span></div>
+        <h1 class="product-title">Semax / Selank</h1>
+        <p class="product-subtitle">A powerful nootropic peptide combination. Semax is a synthetic heptapeptide that modulates BDNF and serotonin levels, while Selank is a tetrapeptide with anxiolytic and cognitive-enhancing properties. Together they support focus, memory, and mental clarity.</p>
+        <div class="product-rating">
+            <div class="stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span class="rating-text"><strong>4.9</strong> from 200+ verified patients</span>
+        </div>
+    
+    </div>
+
+        <ul class="product-highlights">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Compounded by a 503A U.S. Pharmacy</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Licensed U.S. Physicians</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Daily Injection</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>FSA/HSA Eligible</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>Cancel Anytime</li>
+        </ul>
+    <div class="pricing-section">
+        <div class="plan-selector">
+            <div class="plan-option active" data-plan="monthly">
+                <div class="plan-label">Monthly</div>
+                <div class="plan-price">$213</div>
+                <div class="plan-period">/month</div>
+            </div>
+            <div class="plan-option" data-plan="quarterly">
+                <div class="plan-save">Save 15%</div>
+                <div class="plan-label">3 Months</div>
+                <div class="plan-price">$181</div>
+                <div class="plan-period">/month</div>
+            </div>
+            <div class="plan-option" data-plan="annual">
+                <div class="plan-save">Save 30%</div>
+                <div class="plan-label">Annual</div>
+                <div class="plan-price">$149</div>
+                <div class="plan-period">/month</div>
+            </div>
+        </div>
+        <div class="price-display">
+            <span class="price-current">213</span>
+            <span class="price-original">$350</span>
+        </div>
+        <p class="price-per-dose"><strong>$7.10</strong> per daily dose</p>
+        <div class="pharmacy-banner">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    <div>
+                        <strong>Prescription from a Licensed U.S. Pharmacy</strong>
+                        <span>Not a research chemical. Not gray market. Legally prescribed and fulfilled.</span>
+                    </div>
+                </div>
+        <a href="https://join.argomd.com/f/semax-selank" class="btn-get-started">Start Free Assessment</a>
+        <p style="font-size:12px;color:var(--warm-gray);text-align:center;margin-top:8px;">Takes under 5 min · No office visit required · Cancel anytime</p>
+    </div>
+
+    <div class="trust-bar">
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Free Shipping</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span>Physician Guided</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+            <span>FSA/HSA Eligible</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            <span>Cancel Anytime</span>
+        </div>
+    </div>
+
+    <section class="section" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get started in 3 simple steps. No office visits required.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Complete Online Consultation</h4>
+                    <p>Answer a few health questions. Our board-certified physicians review your medical history and determine if Semax / Selank is right for you.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Get Your Prescription</h4>
+                    <p>If approved, your prescription is sent to our partner pharmacy. Your medication is compounded fresh and shipped directly to your door.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Start Your Protocol</h4>
+                    <p>Follow your prescribed protocol at home. Track your progress with our app. Our care team is available 24/7 for support and dose adjustments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-mid-page" style="padding:32px 16px;background:var(--cream);text-align:center;border-top:1px solid var(--light-gray);border-bottom:1px solid var(--light-gray);">
+        <p style="font-size:14px;color:var(--warm-gray);margin-bottom:12px;">Ready to start your Cognitive Enhancement protocol?</p>
+        <a href="https://join.argomd.com/f/semax-selank" class="btn-get-started" style="max-width:320px;margin:0 auto;display:flex;">Start Free Assessment — 213/mo</a>
+        <p style="font-size:12px;color:var(--warm-gray);margin-top:8px;">Physician-prescribed · Shipped to your door · 30-day guarantee</p>
+    </div>
+
+    <section class="section" id="benefits">
+        <h2 class="section-title">Why Patients Choose BPC-157</h2>
+        <p class="section-subtitle">Advanced peptide therapy for targeted healing and optimization.</p>
+        <div class="benefits-grid">            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h4>Enhanced Focus</h4>
+                <p>Improved concentration and mental clarity</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h4>Memory Support</h4>
+                <p>Supports BDNF for neuroplasticity</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h4>Stress Relief</h4>
+                <p>Anxiolytic effects without sedation</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h4>Cognitive Clarity</h4>
+                <p>Sharp mental performance daily</p>
+            </div>
+</div>
+    </section>
+
+    <section class="section" id="clinical">
+        <h2 class="section-title">Clinical Evidence</h2>
+        <p class="section-subtitle">Preclinical results demonstrating efficacy and safety.</p>
+        <div class="clinical-card">
+            <h3>Nootropic Research</h3>
+            <p>Preclinical studies demonstrate Semax and Selank effects on cognitive function and stress response.</p>
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="stat-number">BDNF Boost</div>
+                    <div class="stat-label">Semax increases brain-derived neurotrophic factor</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Anxiolytic</div>
+                    <div class="stat-label">Selank reduces anxiety without sedation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="mechanism">
+        <h2 class="section-title">How BPC-157 Works</h2>
+        <p class="section-subtitle">Mechanism of Action</p>
+        <div class="mechanism-list">
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>BDNF Modulation</h4>
+                    <p>Semax upregulates brain-derived neurotrophic factor for neuroplasticity</p>
+                </div>
+            </div>
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>Serotonin Balance</h4>
+                    <p>Selank modulates serotonin metabolism for mood stability</p>
+                </div>
+            </div>
+            <div class="mechanism-item">
+                <div class="mechanism-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="mechanism-text">
+                    <h4>Neuroprotection</h4>
+                    <p>Both peptides support neuronal health and cognitive resilience</p>
+                </div>
+            </div>
+</div>
+    </section>
+
+    <section class="section" id="safety">
+        <h2 class="section-title">Safety Information</h2>
+        <p class="section-subtitle">Important information about BPC-157 safety and side effects.</p>
+        <div style="background: var(--cream); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 16px;">
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--charcoal);">Important Safety Information</h3>
+            <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--error);">Warnings</h4>
+            <ul style="font-size: 13px; color: var(--warm-gray); line-height: 1.6; padding-left: 16px; margin-bottom: 16px;">
+                <li>Compounded prescription preparation — not FDA-approved for this indication</li>
+                <li>May interact with other medications</li>
+                <li>Store refrigerated</li>
+</ul>
+            <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--charcoal);">Common Side Effects</h4>
+            <ul style="font-size: 13px; color: var(--warm-gray); line-height: 1.6; padding-left: 16px;">
+                <li>Mild headache</li>
+                <li>Nasal irritation (if nasal spray)</li>
+                <li>Temporary fatigue</li>
+</ul>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about BPC-157.</p>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do Semax and Selank work?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Semax is a synthetic heptapeptide that increases BDNF and modulates enkephalin degradation. Selank is a tetrapeptide with anxiolytic effects through serotonin modulation. Together they support focus, memory, and emotional stability.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What results can I expect?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Most patients report improved focus and reduced mental fog within 1-2 weeks. Enhanced memory and stress resilience typically develop over 4-6 weeks of consistent use.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I take Semax / Selank?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Administered via subcutaneous injection or nasal spray daily. Your shipment includes everything needed, and our care team provides dosing guidance.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What are the side effects?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>The most common side effects include mild headache, nasal irritation (with spray), and temporary fatigue. These are typically mild and resolve with continued use.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is Semax / Selank FDA approved?
+                    <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Semax and Selank are research peptides used under physician supervision. They are not FDA-approved for specific indications but are legally prescribed by our board-certified physicians based on clinical evidence.</p>
+                </div>
+            </div>
+</div>
+    </section>
+
+    <section class="section" id="reviews">
+        <h2 class="section-title">What Patients Are Saying</h2>
+        <p class="section-subtitle">Real reviews from verified ArgoMD patients.</p>
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">JK</div>
+                <div class="review-meta">
+                    <div class="review-name">Jordan K.</div>
+                    <div class="review-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Verified Patient
+                    </div>
+                </div>
+            </div>
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">Started Semax/Selank for focus at work. The difference is noticeable — clearer thinking, better memory recall, and I handle stress much better.</p>
+            <div class="review-date">March 2025</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">RM</div>
+                <div class="review-meta">
+                    <div class="review-name">Rachel M.</div>
+                    <div class="review-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Verified Patient
+                    </div>
+                </div>
+            </div>
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">As a grad student, mental clarity is everything. This combo has helped me stay sharp during long study sessions without the crash of stimulants.</p>
+            <div class="review-date">February 2025</div>
+        </div>
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">DP</div>
+                <div class="review-meta">
+                    <div class="review-name">David P.</div>
+                    <div class="review-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Verified Patient
+                    </div>
+                </div>
+            </div>
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="var(--brand-gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">My physician recommended this for cognitive support. The quality is excellent and the mental clarity improvement is real.</p>
+            <div class="review-date">January 2025</div>
+        </div>
+    </section>
+
+    <div class="cta-after-reviews" style="padding:32px 16px;background:var(--white);text-align:center;border-top:1px solid var(--light-gray);">
+        <p style="font-size:14px;color:var(--warm-gray);margin-bottom:12px;">Join 10,000+ patients who trust ArgoMD for peptide therapy</p>
+        <a href="https://join.argomd.com/f/semax-selank" class="btn-get-started" style="max-width:320px;margin:0 auto;display:flex;">Start Free Assessment — $288/mo</a>
+        <p style="font-size:12px;color:var(--warm-gray);margin-top:8px;">No insurance needed · FSA/HSA eligible · Cancel anytime</p>
+    </div>
+
+    <div class="guarantee-banner">
+        <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>30-Day Money-Back Guarantee</h3>
+        <p>If you're not completely satisfied with your first month, contact us within 30 days for a full refund. No questions asked.</p>
+    </div>
+
+    <section class="section" id="compliance">
+<h2 class="section-title">Safety &amp; Compliance</h2>
+<div class="compliance-text"><p>Semax and Selank are prescription compounded medications prepared by a state-licensed 503A compounding pharmacy under Section 503A of the Federal Food, Drug, and Cosmetic Act. They are dispensed pursuant to a valid prescription from a U.S. licensed physician for an individually identified patient.</p>
+
+<p>Semax and Selank are not FDA-approved for any indication. They are prescribed as compounded preparations based on available clinical and preclinical evidence and the prescribing physician's clinical judgment.</p>
+
+<p>Individual results vary. This page describes preclinical and limited clinical evidence and does not constitute a guarantee of outcome.</p>
+
+<p>© 2026 ArgoMD. HIPAA compliant. Licensed in all 50 states.</p></div>
+</section>
+
+    <div class="cta-section">
+        <h2>Enhance Your Mind</h2>
+        <p>Join patients optimizing their cognitive performance with ArgoMD nootropic protocols.</p>
+        <a href="https://join.argomd.com/f/semax-selank" class="btn-cta">Start Free Assessment — $288/mo</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/tos">Terms of Service</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+        <p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+        <p>Individual results may vary. These compounds are prescribed off-label by our physicians based on clinical evidence.</p>
+        <p>2026 ArgoMD. All rights reserved.</p>
+        <a href="https://www.legitscript.com/websites/?checker_keywords=argomd.com" target="_blank" title="Verify LegitScript Approval for www.argomd.com">
+            <img src="https://static.legitscript.com/seals/50424987.png" alt="Verify Approval for www.argomd.com" width="73" height="79" />
+        </a>
+
+    </footer>
+
+    <script>
+        // Carousel
+        const carousel = document.getElementById('productCarousel');
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+        function goToSlide(index, animate = true) {
+            currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+            track.style.transition = animate ? 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
+        }
+
+        dots.forEach((dot, index) => { dot.addEventListener('click', () => goToSlide(index)); });
+
+        // Touch swipe
+        let touchStartX = 0, isTouching = false, touchStartTime = 0;
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            isTouching = true;
+            touchStartTime = Date.now();
+            track.style.transition = 'none';
+        }, { passive: true });
+        carousel.addEventListener('touchmove', (e) => {
+            if (!isTouching) return;
+            const dx = e.touches[0].clientX - touchStartX;
+            const offset = -(currentSlide * 100) + (dx / carousel.offsetWidth * 100);
+            track.style.transform = `translateX(${offset}%)`;
+        }, { passive: true });
+        carousel.addEventListener('touchend', (e) => {
+            if (!isTouching) return;
+            isTouching = false;
+            const dx = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(dx) > 50) { goToSlide(currentSlide + (dx > 0 ? 1 : -1)); }
+            else { goToSlide(currentSlide); }
+        });
+
+        // Plan selector
+        const planOptions = document.querySelectorAll('.plan-option');
+        const priceCurrent = document.querySelector('.price-current');
+        const priceOriginal = document.querySelector('.price-original');
+        const pricePerDose = document.querySelector('.price-per-dose');
+        const btnAtc = document.getElementById('btnAtc');
+
+        const plans = {
+            monthly: { price: 288, original: 475, perDose: 9.60 },
+            quarterly: { price: 245, original: 475, perDose: 8.17 },
+            annual: { price: 202, original: 475, perDose: 6.73 }
+        };
+
+        planOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                planOptions.forEach(o => o.classList.remove('active'));
+                option.classList.add('active');
+                const plan = option.dataset.plan;
+                const data = plans[plan];
+                priceCurrent.textContent = '$' + data.price;
+                priceOriginal.textContent = '$' + data.original;
+                pricePerDose.innerHTML = '<strong>$' + data.perDose + '</strong> per daily dose';
+                if (btnAtc) btnAtc.innerHTML = `Get Started — $${data.price}`;
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-icon');
+                const isOpen = answer.classList.contains('active');
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+                if (!isOpen) { answer.classList.add('active'); icon.style.transform = 'rotate(180deg)'; }
+            });
+        });
+    </script>
+
+    <div class="atc-bar">
+        <div class="price-display">
+            <span class="price-current">$288</span>
+        </div>
+        <button class="btn-atc" id="btnAtc">Start Free Assessment</button>
+    </div>
+</body>
