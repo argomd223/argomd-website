@@ -1141,8 +1141,8 @@
     </section>
 
     <section class="section" id="benefits">
-        <h2 class="section-title">Why Patients Choose Retatrutide</h2>
-        <p class="section-subtitle">{{BENEFITS_SUBTITLE}}</p>
+        <h2 class="section-title">Why Patients Choose Semaglutide</h2>
+        <p class="section-subtitle">The proven GLP-1 medication backed by the largest clinical trial program in obesity medicine.</p>
         <div class="benefits-grid">
             <div class="benefit-card">
                 <div class="icon">
@@ -1284,11 +1284,11 @@
             </div>
             <div class="faq-item">
                 <button class="faq-question">
-                    {{FAQ5_QUESTION}}
+                    How soon will I see results?
                     <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
                 </button>
                 <div class="faq-answer">
-                    <p>{{FAQ5_ANSWER}}</p>
+                    <p>Most patients notice reduced appetite within the first 1-2 weeks. Visible weight loss typically begins by week 4, with the full effect reaching 15-20% body weight reduction by 68 weeks of consistent use.</p>
                 </div>
             </div>
         </div>
@@ -1396,7 +1396,7 @@
     <div class="cta-section">
         <h2>Start Your Transformation Today</h2>
         <p>Join thousands of patients who have achieved their weight loss goals with ArgoMD.</p>
-        <a href="#" class="btn-cta">Get Started — $129/month</a>
+        <a href="https://join.argomd.com/f/semaglutide" class="btn-cta">Get Started — $129/month</a>
     </div>
 
     <footer class="footer">
@@ -1749,16 +1749,7 @@
 
         // Wire up the sticky ATC button
         document.getElementById('btnAtc').addEventListener('click', () => {
-            const plan = document.querySelector('.plan-option.active');
-            const planType = plan ? plan.dataset.plan : 'monthly';
-            const prices = { monthly: 129, quarterly: 103, annual: 86 };
-            addToCart({
-                id: 'semaglutide-' + planType,
-                title: 'Semaglutide (' + planType.charAt(0).toUpperCase() + planType.slice(1) + ')',
-                price: prices[planType],
-                qty: 1,
-                image: 'assets/retatrutide-hero.jpg'
-            });
+            window.location.href = 'https://join.argomd.com/f/semaglutide';
         });
 
         updateCartBadge();
