@@ -701,8 +701,10 @@
     </script>
 
     <script>
-        document.getElementById('btnAtc').addEventListener('click', () => {
-            window.location.href = 'https://join.argomd.com/f/nad';
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btnAtc').addEventListener('click', () => {
+                window.location.href = 'https://join.argomd.com/f/nad';
+        });
         });
     </script>
 

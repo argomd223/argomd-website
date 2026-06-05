@@ -693,8 +693,10 @@
     </script>
 
     <script>
-        document.getElementById('btnAtc').addEventListener('click', () => {
-            window.location.href = 'https://join.argomd.com/f/tb-500';
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btnAtc').addEventListener('click', () => {
+                window.location.href = 'https://join.argomd.com/f/tb-500';
+        });
         });
     </script>
 
