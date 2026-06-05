@@ -85,7 +85,7 @@
         .price-per-dose { font-size: 13px; color: var(--warm-gray); margin-bottom: 16px; }
         .price-per-dose strong { color: var(--brand-green); }
 
-        .btn-get-started { width: 100%; height: 52px; background: var(--brand-green); color: white; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; letter-spacing: 0.01em; margin-top: 16px; }
+        .btn-get-started { width: 100%; height: 52px; background: var(--brand-green); color: white; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; letter-spacing: 0.01em; margin-top: 16px; text-decoration: none; }
         .btn-get-started:active { transform: scale(0.98); opacity: 0.9; }
         .atc-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid rgba(0,0,0,0.08); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); z-index: 999; display: flex; gap: 12px; align-items: center; }
         .btn-atc { flex: 1; height: 48px; background: var(--brand-green); color: white; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; letter-spacing: 0.01em; }
@@ -693,6 +693,12 @@
                 document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
                 if (!isOpen) { answer.classList.add('active'); icon.style.transform = 'rotate(180deg)'; }
             });
+        });
+    </script>
+
+    <script>
+        document.getElementById('btnAtc').addEventListener('click', () => {
+            window.location.href = 'https://join.argomd.com/f/nad-peptide';
         });
     </script>
 
