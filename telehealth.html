@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telehealth Informed Consent — ArgoMD</title>
+    <meta name="description" content="Telehealth informed consent for ArgoMD online medical services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --argo-green: #1c4231;
+            --argo-gold: #d49e3f;
+            --cream: #f5f3ee;
+            --charcoal: #1a1a1a;
+            --warm-gray: #5a5a5a;
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 80px;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(28,66,49,0.08);
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo img { width: 40px; height: 40px; object-fit: contain; }
+        .logo span {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--argo-green);
+            letter-spacing: 0.08em;
+        }
+        .logo span em { color: var(--argo-gold); font-style: normal; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--argo-gold); }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 24px 64px;
+            background: white;
+        }
+        .content h1 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            color: var(--argo-green);
+            margin-bottom: 32px;
+        }
+        .content h2 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: var(--argo-green);
+            margin: 32px 0 16px;
+        }
+        .content h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            color: var(--argo-green);
+            margin: 24px 0 12px;
+        }
+        .content p {
+            color: var(--warm-gray);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+        .content ul, .content ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+            color: var(--warm-gray);
+        }
+        .content ul li, .content ol li { margin-bottom: 10px; }
+        .content strong { color: var(--charcoal); }
+        .consent-box {
+            background: var(--cream);
+            border: 1px solid rgba(28,66,49,0.12);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        .consent-box p { margin-bottom: 0; }
+        .footer {
+            background: var(--argo-green);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+        .footer p { opacity: 0.7; font-size: 13px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .content { padding-top: 100px; }
+        }
+    </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1012899118354644');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1012899118354644&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="ArgoMD">
+                <span>Argo<em>MD</em></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#medications">Medications</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Telehealth Informed Consent</h1>
+        <p><strong>Last Updated:</strong> June 8, 2026</p>
+        <p><strong>Effective Date:</strong> June 8, 2026</p>
+
+        <p>Please read this Telehealth Informed Consent carefully. By using ArgoMD's telehealth services, you acknowledge that you have read, understood, and agree to the terms outlined below. If you do not agree, please do not use our telehealth services.</p>
+
+        <h2>1. What Is Telehealth?</h2>
+        <p>Telehealth involves the use of electronic communications, software, and technology to enable healthcare providers to deliver clinical services to patients without an in-person visit. Through ArgoMD's secure platform, you can consult with licensed healthcare providers using video, audio, messaging, and other digital tools from the convenience of your own location.</p>
+        <p>Telehealth services offered through ArgoMD include, but are not limited to:</p>
+        <ul>
+            <li>Online health assessments and medical intake questionnaires</li>
+            <li>Asynchronous consultations with licensed physicians and other qualified healthcare providers</li>
+            <li>Electronic review of your health information and medical history</li>
+            <li>Digital prescribing and referral services, where medically appropriate and legally permitted</li>
+            <li>Secure messaging with your care team regarding treatment and follow-up</li>
+        </ul>
+
+        <h2>2. How Telehealth Works at ArgoMD</h2>
+        <p>When you use ArgoMD's telehealth services, the following process typically occurs:</p>
+        <ol>
+            <li>You complete a comprehensive online health questionnaire providing your medical history, current symptoms, and other relevant health information.</li>
+            <li>A licensed healthcare provider licensed in your state reviews your submitted information through our secure, HIPAA-compliant platform.</li>
+            <li>The provider may follow up with additional questions via secure messaging if more information is needed to make a clinical determination.</li>
+            <li>The provider evaluates whether the requested treatment is medically appropriate for you based on the information provided.</li>
+            <li>If treatment is approved, an electronic prescription may be sent to a partnered pharmacy for fulfillment and discreet delivery to your address.</li>
+            <li>You may message your care team through our platform for follow-up questions or concerns.</li>
+        </ol>
+        <p>You understand that telehealth visits are not conducted in real-time video or audio in all cases. Many consultations are asynchronous, meaning the provider reviews your information and responds at a later time.</p>
+
+        <h2>3. Technology Requirements</h2>
+        <p>To use ArgoMD's telehealth services, you will need:</p>
+        <ul>
+            <li>A compatible device (smartphone, tablet, or computer) with internet access</li>
+            <li>An up-to-date web browser (Chrome, Safari, Firefox, or Edge)</li>
+            <li>A valid email address for account creation and communication</li>
+            <li>A reliable internet connection</li>
+        </ul>
+        <p>You are responsible for ensuring your device and internet connection are functional. ArgoMD is not responsible for delays in care due to technical issues on your end, including but not limited to poor internet connectivity, device malfunction, or outdated software.</p>
+
+        <h2>4. Benefits of Telehealth</h2>
+        <p>Telehealth can offer several benefits, including:</p>
+        <ul>
+            <li>Convenient access to healthcare from your home or other private location</li>
+            <li>Reduced travel time and associated costs</li>
+            <li>Faster access to a healthcare provider compared to traditional in-person appointments</li>
+            <li>Ability to consult with providers who may not be available in your immediate geographic area</li>
+            <li>More efficient management of certain health conditions and medication refills</li>
+            <li>Reduced exposure to communicable illnesses in waiting rooms</li>
+        </ul>
+
+        <h2>5. Risks and Limitations of Telehealth</h2>
+        <p>While telehealth offers many benefits, it also has risks and limitations. By using our services, you acknowledge and understand the following:</p>
+
+        <h3>5.1 Limitations of Remote Evaluation</h3>
+        <p>Telehealth does not replace in-person medical care. Because your provider cannot conduct a physical examination in person, certain clinical signs, symptoms, or conditions may not be detectable through remote consultation. This could potentially lead to:</p>
+        <ul>
+            <li>A delay in diagnosis or treatment</li>
+            <li>A missed diagnosis that might have been identified during an in-person examination</li>
+            <li>The inability to detect certain physical findings (e.g., abnormal vital signs, physical masses, or subtle physical cues)</li>
+            <li>A determination that an in-person visit is necessary before treatment can be provided</li>
+        </ul>
+
+        <h3>5.2 Technical Risks</h3>
+        <p>Technology is not perfect. Potential technical issues include:</p>
+        <ul>
+            <li>Internet connectivity failures, platform downtime, or data transmission delays</li>
+            <li>Security breaches, unauthorized access, or data loss (despite our security measures)</li>
+            <li>Poor image or sound quality that may limit the provider's ability to assess your condition</li>
+            <li>Loss or corruption of your health records due to software or hardware failures</li>
+        </ul>
+
+        <h3>5.3 Information Accuracy</h3>
+        <p>The quality of telehealth care depends on the accuracy and completeness of the information you provide. You must provide truthful, complete, and accurate information about your medical history, symptoms, current medications, allergies, and other health details. Withholding or misrepresenting information may result in inappropriate treatment, misdiagnosis, or harm.</p>
+
+        <h3>5.4 Not for Emergencies</h3>
+        <p>ArgoMD's telehealth services are <strong>not intended for emergency medical situations</strong>. If you are experiencing a medical emergency — including but not limited to chest pain, difficulty breathing, severe bleeding, signs of stroke, or thoughts of harming yourself or others — call 911 immediately or go to the nearest emergency room. Do not wait for a telehealth response.</p>
+
+        <h2>6. Privacy and Security</h2>
+        <p>ArgoMD takes your privacy seriously. We use industry-standard encryption, secure servers, and access controls to protect your personal and health information. Our platform is designed to comply with the Health Insurance Portability and Accountability Act (HIPAA) and other applicable privacy laws.</p>
+        <p>However, as with any internet-based service, we cannot guarantee absolute security. You are responsible for maintaining the confidentiality of your account credentials and for using our services in a private setting to prevent unauthorized individuals from overhearing or viewing your consultation.</p>
+        <p>For more details, please review our <a href="privacy.html">Privacy Policy</a> and <a href="hipaa.html">HIPAA Notice of Privacy Practices</a>.</p>
+
+        <h2>7. Provider Licensure and Qualifications</h2>
+        <p>All healthcare providers who review your information and make treatment decisions through ArgoMD are licensed to practice medicine in the state where you are located at the time of the consultation. Providers are independently contracted and are not employees of ArgoMD. ArgoMD itself does not practice medicine or render medical advice.</p>
+        <p>You may request the name, credentials, and state of licensure of the provider reviewing your case at any time by contacting us at <a href="mailto:support@argomd.com">support@argomd.com</a>.</p>
+
+        <h2>8. Your Rights as a Patient</h2>
+        <p>You have the following rights regarding telehealth services:</p>
+        <ul>
+            <li><strong>Right to Refuse:</strong> You may decline telehealth services at any time and request in-person care instead, though ArgoMD does not provide in-person services directly and may not be able to accommodate such requests.</li>
+            <li><strong>Right to Withdraw Consent:</strong> You may withdraw your consent to receive telehealth services at any time by notifying us in writing. Withdrawal of consent will not affect any services already rendered or actions already taken.</li>
+            <li><strong>Right to Access Your Records:</strong> You have the right to access your medical records maintained by ArgoMD and our partner providers, subject to applicable laws.</li>
+            <li><strong>Right to Ask Questions:</strong> You may ask questions about the telehealth process, your diagnosis, treatment options, and alternatives at any time.</li>
+            <li><strong>Right to Alternative Care:</strong> You may seek a second opinion or in-person evaluation from another healthcare provider at any time.</li>
+        </ul>
+
+        <h2>9. Prescription Policy</h2>
+        <p>Prescriptions are issued only when a licensed provider determines, in their sole professional judgment, that a medication is medically appropriate based on the information you provide. Providers have the right and obligation to deny prescriptions if they determine that telehealth is not appropriate for your condition, more information is needed, or the requested treatment is not clinically indicated.</p>
+        <p>Controlled substances are not prescribed through ArgoMD's platform. Certain medications may require additional verification or an in-person examination before they can be prescribed.</p>
+
+        <h2>10. Emergency Protocols</h2>
+        <p>If a provider reviewing your case believes you may be experiencing a medical emergency or a condition requiring urgent in-person evaluation, they may:</p>
+        <ul>
+            <li>Advise you to seek immediate in-person care or call 911</li>
+            <li>Decline to provide treatment through the telehealth platform</li>
+            <li>Recommend that you visit an emergency room or urgent care facility</li>
+        </ul>
+        <p>ArgoMD and its providers are not responsible for any delays in care resulting from your failure to follow emergency recommendations.</p>
+
+        <h2>11. State-Specific Requirements</h2>
+        <p>Telehealth is regulated at the state level, and requirements vary by jurisdiction. By using our services, you represent that you are located in a state where ArgoMD's services are available. You must provide your current location at the time of each consultation. It is your responsibility to inform us if you move to or are temporarily located in a different state, as this may affect your eligibility for services.</p>
+
+        <h2>12. Patient Responsibilities</h2>
+        <p>To ensure safe and effective care, you agree to:</p>
+        <ul>
+            <li>Provide accurate, complete, and truthful information about your health history, symptoms, and current medications</li>
+            <li>Notify us of any changes to your health status, new diagnoses, or new medications</li>
+            <li>Follow the treatment plan and instructions provided by your healthcare provider</li>
+            <li>Seek in-person medical care when recommended or when your condition worsens</li>
+            <li>Use our services from a private, secure location</li>
+            <li>Be at least 18 years of age (or the age of majority in your jurisdiction)</li>
+        </ul>
+
+        <h2>13. How to File a Complaint</h2>
+        <p>If you have concerns about the quality of care you received or wish to file a complaint about a provider, you may:</p>
+        <ul>
+            <li>Contact ArgoMD at <a href="mailto:support@argomd.com">support@argomd.com</a></li>
+            <li>File a complaint with the state medical board in the state where the provider is licensed</li>
+            <li>File a complaint with the Oregon Board of Medicine if applicable</li>
+        </ul>
+        <p>Filing a complaint will not result in retaliation or affect your access to care.</p>
+
+        <h2>14. Consent to Receive Telehealth Services</h2>
+        <div class="consent-box">
+            <p>By using ArgoMD's telehealth services, you voluntarily consent to receive healthcare services via telehealth. You understand that:</p>
+            <ul>
+                <li>You have read and understand this Telehealth Informed Consent.</li>
+                <li>You understand the benefits, risks, and limitations of telehealth as described above.</li>
+                <li>You understand that telehealth is not appropriate for all medical conditions and that an in-person visit may be necessary.</li>
+                <li>You understand that you have the right to refuse or withdraw consent at any time without affecting your right to future care.</li>
+                <li>You agree to provide accurate and complete health information to the best of your ability.</li>
+                <li>You understand that you are responsible for payment of services rendered, regardless of whether treatment is approved or denied.</li>
+                <li>You understand that ArgoMD does not provide emergency services and that 911 or the nearest emergency room should be used for emergencies.</li>
+            </ul>
+        </div>
+
+        <h2>15. Changes to This Consent</h2>
+        <p>ArgoMD may update this Telehealth Informed Consent from time to time. We will post the updated version on our website with a revised "Last Updated" date. Your continued use of our telehealth services after any changes constitutes your acceptance of the revised terms. We encourage you to review this page periodically.</p>
+
+        <h2>16. Contact Information</h2>
+        <p>If you have any questions about this Telehealth Informed Consent or our telehealth services, please contact us:</p>
+        <p><strong>Email:</strong> <a href="mailto:support@argomd.com">support@argomd.com</a><br>
+        <strong>Address:</strong> ArgoMD<br>
+        30 N Gould St Ste N<br>
+        Sheridan, WY 82801</p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 ArgoMD. All rights reserved.</p>
+        <a href="https://www.legitscript.com/websites/?checker_keywords=argomd.com" target="_blank" title="Verify LegitScript Approval for www.argomd.com">
+            <img src="https://static.legitscript.com/seals/50424987.png" alt="Verify Approval for www.argomd.com" width="73" height="79" />
+        </a>
+    </footer>
+</body>
+</html>
